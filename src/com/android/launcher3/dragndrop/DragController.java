@@ -35,6 +35,7 @@ import com.android.launcher3.logging.InstanceId;
 import com.android.launcher3.model.data.ItemInfo;
 import com.android.launcher3.model.data.WorkspaceItemInfo;
 import com.android.launcher3.util.TouchController;
+import com.android.launcher3.Utilities;
 import com.android.launcher3.views.ActivityContext;
 
 import java.util.ArrayList;
@@ -390,6 +391,11 @@ public abstract class DragController<T extends ActivityContext>
     @Override
     public boolean onControllerInterceptTouchEvent(MotionEvent ev) {
         if (mOptions != null && mOptions.isAccessibleDrag) {
+            return false;
+        }
+
+        if (!Utilities.isWorkspaceEditAllowed(mActivity.getDragLayer().getContext())) {
+            cancelDrag();
             return false;
         }
 
