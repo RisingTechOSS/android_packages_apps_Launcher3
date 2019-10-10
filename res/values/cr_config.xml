@@ -39,4 +39,8 @@
 
     <!-- Icon pack -->
     <string name="icon_pack_settings_class" translatable="false">com.android.launcher3.icons.pack.IconPackSettingsFragment</string>
+
+    <!-- String representing the fragment class for about activity.-->
+    <string name="about_fragment_name" translatable="false">com.android.launcher3.settings.SettingsAbout$AboutFragment</string>
+
 </resources>

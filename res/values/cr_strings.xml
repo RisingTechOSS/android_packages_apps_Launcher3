@@ -362,4 +362,11 @@
 
     <!-- QSB -->
     <string name="qsb_search_hint">Search this phone and more…</string>
+
+    <!-- About info -->
+    <string name="about_rice_title" translatable="false">Ortus Launcher</string>
+    <string name="about_thanks_cat">Special thanks to</string>
+    <string name="about">About</string>
+    <string name="about_summary">Info about the Ortus Launcher</string>
+    <string name="about_app_version">Version 2.0</string>
 </resources>
