@@ -24,6 +24,7 @@ import static com.android.launcher3.logging.StatsLogManager.LauncherEvent.IGNORE
 import static com.android.launcher3.logging.StatsLogManager.LauncherEvent.LAUNCHER_SETTINGS_BUTTON_TAP_OR_LONGPRESS;
 import static com.android.launcher3.logging.StatsLogManager.LauncherEvent.LAUNCHER_WIDGETSTRAY_BUTTON_TAP_OR_LONGPRESS;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -277,7 +278,10 @@ public class OptionsPopupView<T extends Context & ActivityContext> extends Arrow
                 .putExtra(EXTRA_WALLPAPER_OFFSET,
                         launcher.getWorkspace().getWallpaperOffsetForCenterPage())
                 .putExtra(EXTRA_WALLPAPER_LAUNCH_SOURCE, "app_launched_launcher")
-                .putExtra(EXTRA_WALLPAPER_FLAVOR, "focus_wallpaper");
+                .putExtra(EXTRA_WALLPAPER_FLAVOR, "focus_wallpaper")
+                .setComponent(new ComponentName(
+                        launcher.getString(R.string.wallpaper_picker_package),
+                        "com.android.customization.picker.CustomizationPickerActivity"));
         String pickerPackage = launcher.getString(R.string.wallpaper_picker_package);
         if (!TextUtils.isEmpty(pickerPackage)) {
             intent.setPackage(pickerPackage);
