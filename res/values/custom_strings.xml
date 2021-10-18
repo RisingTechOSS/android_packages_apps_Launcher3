@@ -138,4 +138,7 @@
 
     <!-- Background opacity -->
     <string name="background_opacity_title">Background opacity</string>
+
+    <!-- Recents -->
+    <string name="action_lens">Lens</string>
 </resources>
