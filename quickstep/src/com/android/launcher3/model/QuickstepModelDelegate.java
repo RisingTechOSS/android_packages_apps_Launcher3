@@ -58,6 +58,7 @@ import androidx.annotation.WorkerThread;
 import com.android.launcher3.InvariantDeviceProfile;
 import com.android.launcher3.LauncherAppState;
 import com.android.launcher3.config.FeatureFlags;
+import com.android.launcher3.lineage.trust.db.TrustDatabaseHelper;
 import com.android.launcher3.logger.LauncherAtom;
 import com.android.launcher3.logging.InstanceId;
 import com.android.launcher3.logging.InstanceIdSequence;
@@ -345,20 +346,23 @@ public class QuickstepModelDelegate extends ModelDelegate {
             return;
         }
 
+        TrustDatabaseHelper trustData = mApp.getTrustData();
+        int totalPackageHidden = trustData != null ? trustData.getTotalPackageHidden() : 0;
+
         registerPredictor(mAllAppsState, apm.createAppPredictionSession(
                 new AppPredictionContext.Builder(context)
                         .setUiSurface("home")
-                        .setPredictedTargetCount(mIDP.numDatabaseAllAppsColumns)
+                        .setPredictedTargetCount(mIDP.numDatabaseAllAppsColumns + totalPackageHidden)
                         .build()));
 
         // TODO: get bundle
-        registerHotseatPredictor(apm, context);
+        registerHotseatPredictor(apm, context, totalPackageHidden);
 
         registerWidgetsPredictor(apm.createAppPredictionSession(
                 new AppPredictionContext.Builder(context)
                         .setUiSurface("widgets")
                         .setExtras(getBundleForWidgetsOnWorkspace(context, mDataModel))
-                        .setPredictedTargetCount(NUM_OF_RECOMMENDED_WIDGETS_PREDICATION)
+                        .setPredictedTargetCount(NUM_OF_RECOMMENDED_WIDGETS_PREDICATION  + totalPackageHidden)
                         .build()));
     }
 
@@ -369,18 +373,20 @@ public class QuickstepModelDelegate extends ModelDelegate {
             return;
         }
         Context context = mApp.getContext();
+        TrustDatabaseHelper trustData = mApp.getTrustData();
+        int totalPackageHidden = trustData != null ? trustData.getTotalPackageHidden() : 0;
         AppPredictionManager apm = context.getSystemService(AppPredictionManager.class);
         if (apm == null) {
             return;
         }
-        registerHotseatPredictor(apm, context);
+        registerHotseatPredictor(apm, context, totalPackageHidden);
     }
 
-    private void registerHotseatPredictor(AppPredictionManager apm, Context context) {
+    private void registerHotseatPredictor(AppPredictionManager apm, Context context, int totalPackageHidden) {
         registerPredictor(mHotseatState, apm.createAppPredictionSession(
                 new AppPredictionContext.Builder(context)
                         .setUiSurface("hotseat")
-                        .setPredictedTargetCount(mIDP.numDatabaseHotseatIcons)
+                        .setPredictedTargetCount(mIDP.numDatabaseHotseatIcons  + totalPackageHidden)
                         .setExtras(convertDataModelToAppTargetBundle(context, mDataModel))
                         .build()));
     }
