@@ -45,6 +45,7 @@ import com.android.launcher3.views.ActivityContext;
 public class Themes {
 
     public static final String KEY_THEMED_ICONS = "themed_icons";
+    public static final String KEY_THEMED_ICON_PACK = "themed_icon_pack";
 
     /** Gets the WallpaperColorHints and then uses those to get the correct activity theme res. */
     public static int getActivityThemeRes(Context context) {
@@ -71,6 +72,10 @@ public class Themes {
      */
     public static boolean isThemedIconEnabled(Context context) {
         return LauncherPrefs.get(context).get(THEMED_ICONS);
+    }
+
+    public static String getThemedIconPack(Context context) {
+        return LauncherPrefs.getPrefs(context).getString(KEY_THEMED_ICON_PACK, null);
     }
 
     public static String getDefaultBodyFont(Context context) {
