@@ -2,7 +2,9 @@ package com.android.launcher3.graphics;
 
 import static com.android.launcher3.LauncherPrefs.THEMED_ICONS;
 import static com.android.launcher3.util.Executors.UI_HELPER_EXECUTOR;
+import static com.android.launcher3.util.Themes.KEY_THEMED_ICON_PACK;
 import static com.android.launcher3.util.Themes.isThemedIconEnabled;
+import static com.android.launcher3.util.Themes.getThemedIconPack;
 
 import android.annotation.TargetApi;
 import android.content.ContentProvider;
@@ -70,6 +72,8 @@ public class GridCustomizationsProvider extends ContentProvider {
 
     private static final int MESSAGE_ID_UPDATE_PREVIEW = 1337;
 
+    private static final String THEMED_ICON_PACK = "/themed_icon_pack";
+
     private final ArrayMap<IBinder, PreviewLifecycleObserver> mActivePreviews = new ArrayMap<>();
 
     @Override
@@ -100,6 +104,11 @@ public class GridCustomizationsProvider extends ContentProvider {
             case ICON_THEMED: {
                 MatrixCursor cursor = new MatrixCursor(new String[]{BOOLEAN_VALUE});
                 cursor.newRow().add(BOOLEAN_VALUE, isThemedIconEnabled(getContext()) ? 1 : 0);
+                return cursor;
+            }
+            case THEMED_ICON_PACK: {
+                MatrixCursor cursor = new MatrixCursor(new String[] {KEY_NAME});
+                cursor.newRow().add(KEY_NAME, getThemedIconPack(getContext()));
                 return cursor;
             }
             default:
@@ -149,6 +158,12 @@ public class GridCustomizationsProvider extends ContentProvider {
                 LauncherPrefs.get(getContext())
                         .put(THEMED_ICONS, values.getAsBoolean(BOOLEAN_VALUE));
                 getContext().getContentResolver().notifyChange(uri, null);
+                return 1;
+            }
+            case THEMED_ICON_PACK: {
+                getPrefs(getContext()).edit()
+                        .putString(KEY_THEMED_ICON_PACK, values.getAsString(KEY_NAME))
+                        .apply();
                 return 1;
             }
             default:
