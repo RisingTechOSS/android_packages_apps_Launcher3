@@ -18,7 +18,7 @@
         <shape android:shape="rectangle"
             android:tint="?colorButtonNormal">
             <corners android:radius="100dp" />
-            <solid android:color="?android:attr/colorBackground"/>
+            <solid android:color="@color/mid_clear_all_background_color"/>
         </shape>
     </item>
 </ripple>

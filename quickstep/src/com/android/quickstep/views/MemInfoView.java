@@ -143,6 +143,7 @@ public class MemInfoView extends TextView {
         String text = String.format(mMemInfoText,
             unitConvert(availMemMiB, false), unitConvert(totalMemMiB, true));
         setText(text);
+        setTextColor(0xFFFFFFFF);
     }
 
     private class MemInfoWorker implements Runnable {

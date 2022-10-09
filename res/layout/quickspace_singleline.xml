@@ -19,7 +19,7 @@
     android:id="@+id/quickspace_content"
     android:layout_width="wrap_content"
     android:layout_height="fill_parent"
-    android:layout_gravity="center"
+    android:layout_gravity="start|center_vertical"
     android:animateLayoutChanges="true"
     android:orientation="horizontal">
 
@@ -28,7 +28,7 @@
         style="@style/QuickSpaceText"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:layout_gravity="center"
+        android:layout_gravity="start|center_vertical"
         android:layout_weight="1.0"
         android:background="@drawable/bg_quickspace"
         android:clickable="true"
@@ -61,9 +61,9 @@
 
         <ImageView
             android:id="@+id/weather_icon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_gravity="start|center_vertical"
             android:layout_marginRight="4dp"
             android:scaleType="fitXY" />
 
@@ -72,8 +72,8 @@
             style="@style/QuickSpaceText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:drawablePadding="6dp"
+            android:layout_gravity="start|center_vertical"
+            android:drawablePadding="8dp"
             android:textColor="?workspaceTextColor"
             android:textSize="@dimen/quickspace_title_size"
             android:letterSpacing="0.02"

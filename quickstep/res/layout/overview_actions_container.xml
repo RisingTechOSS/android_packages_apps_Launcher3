@@ -34,11 +34,10 @@
 
         <Button
             android:id="@+id/action_screenshot"
-            style="@style/OverviewActionButton"
+            style="@style/CustomOverviewActionButton"
             android:layout_width="60dp"
-            android:layout_height="36dp"
-            android:foreground="@drawable/ic_screenshot"
-            android:layout_gravity="center_vertical"
+            android:layout_height="42dp"
+            android:foreground="@drawable/ic_screenshot_recents"
             android:foregroundGravity="center" />
 
         <Space
@@ -63,13 +62,11 @@
 
         <Button
             android:id="@+id/action_split"
-            style="@style/OverviewActionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/action_split"
-            android:theme="@style/ThemeControlHighlightWorkspaceColor"
-            android:visibility="gone" />
-
+            style="@style/CustomOverviewActionButton"
+            android:layout_width="60dp"
+            android:layout_height="42dp"
+            android:foreground="@drawable/ic_split_screen"
+            android:foregroundGravity="center" />
         <Space
             android:id="@+id/lens_space"
             android:layout_width="0dp"
@@ -79,11 +76,10 @@
 
         <Button
             android:id="@+id/action_lens"
-            style="@style/OverviewActionButton"
+            style="@style/CustomOverviewActionButton"
             android:layout_width="60dp"
-            android:layout_height="36dp"
+            android:layout_height="42dp"
             android:foreground="@drawable/ic_lens"
-            android:layout_gravity="center_vertical"
             android:foregroundGravity="center" />
 
         <Space
@@ -94,13 +90,11 @@
 
         <Button
             android:id="@+id/action_clear_all"
-            style="@style/OverviewActionButton"
+            style="@style/CustomOverviewActionButton"
             android:layout_width="60dp"
-            android:layout_height="36dp"
+            android:layout_height="42dp"
             android:foreground="@drawable/ic_clear_all"
-            android:layout_gravity="center_vertical"
             android:foregroundGravity="center" />
-           
 
         <Space
             android:id="@+id/kill_app_space"

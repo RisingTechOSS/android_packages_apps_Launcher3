@@ -42,7 +42,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start|center_vertical"
-        android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="4dp"
         android:orientation="horizontal">
@@ -85,11 +84,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start|center_vertical"
-            android:layout_marginLeft="6dp"
             android:layout_weight="0.0"
             android:background="@drawable/bg_quickspace"
             android:clickable="true"
-            android:gravity="center"
+            android:gravity="start|center_vertical"
             android:orientation="horizontal"
             android:paddingBottom="6dp"
             android:paddingRight="6dp"
@@ -97,8 +95,8 @@
 
             <ImageView
                 android:id="@+id/quick_event_weather_icon"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:layout_gravity="start|center_vertical"
                 android:layout_marginStart="8dp"
                 android:scaleType="fitXY" />
