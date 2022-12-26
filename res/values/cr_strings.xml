@@ -141,110 +141,145 @@
     <!-- QuickSpace -->
     <string name="show_quickspace_title">At A Glance</string>
     <string name="show_quickspace_summary">Show at the top of your home screen</string>
-    <string name="quickspace_date_format" translatable="false">EEEE, MMM d</string>
-    <string name="quickspace_date_format_minimalistic" translatable="false">EEE, MMM d</string>
+    <string name="quickspace_date_format" translatable="false">EEE, MMM d</string>
+    <string name="quickspace_date_format_minimalistic" translatable="false">EEEE, MMMM d</string>
 
     <!-- QuickSpace: QuickEvent: Device Intro Event -->
-    <string name="quick_event_rom_intro_welcome">Welcome to crDroid!</string>
-    <string-array name="welcome_message_variants">
-        <item>Have a great day</item>
-        <item>Thank you for choosing us</item>
-        <item>Loving us? Send us a beer</item>
-        <item>Best Rom Ever.</item>
-        <item>Say hi to us on Telegram</item>
+    <string name="quick_event_rom_intro_welcome" translatable="false">Welcome to riceDroid!</string>
+    <string-array name="welcome_message_variants" translatable="false">
+        <item>Have a great day!</item>
+        <item>Thank you for flashing riceDroid!</item>
+        <item>Loving us? Send us a soju!</item>
+        <item>We\'re not the best, but at least we try!</item>
+        <item>Share us on twitter! #gtrcd</item>
         <item>Tap here to begin</item>
-        <item>We love you 3000</item>
+        <item>We love it when you enjoy riceDroid!</item>
     </string-array>
 
+    <!-- QuickSpace: QuickEvent: Greetings -->
+    <string name="quickspace_grt_morning">Good morning.</string>
+    <string name="quickspace_grt_evening">Good evening.</string>
+    <string name="quickspace_grt_afternoon">Good afternoon.</string>
+    <string name="quickspace_grt_night">Good night.</string>
+    <string name="quickspace_grt_midnight">Solemn midnight.</string>
+    <string name="quickspace_grt_general">Good day.</string>
+    <string name="quickspace_ext_one">Today is</string>
+    <string name="quickspace_ext_two">It\'s</string>
+    <string name="quickspace_ext_three">It\'s</string>
+
     <!-- QuickSpace: QuickEvent: Ambient Play -->
-    <string name="quick_event_ambient_now_playing">Now Playing</string>
-    <string name="quick_event_ambient_song_artist">%1$s by %2$s</string>
+    <string name="qe_now_playing_unknown_artist">Unknown Artist</string>
+    <string name="qe_now_playing_ext_one">You are now</string>
+    <string name="qe_now_playing_ext_two">Playing</string>
+    <string name="qe_now_playing_by">By</string>
 
     <!-- Quickspace Now Playing -->
     <string name="quickspace_now_playing_title">Now playing</string>
     <string name="quickspace_now_playing_summary">Show the song you\'re playing</string>
 
     <!-- Quickspace alternative view -->
-    <string name="quickspace_alternate_style_title">Minimalistic style</string>
-    <string name="quickspace_alternate_style_summary">Switch to modern style</string>
+    <string name="quickspace_alternate_style_title">Extended style</string>
+    <string name="quickspace_alternate_style_summary">Switch to extended style</string>
 
     <!-- Quickspace PSA - Custom messages for the glance -->
     <string name="quickspace_psa_title">Random messages</string>
     <string name="quickspace_psa_summary">Make your companion more lively with random messages</string>
 
     <string-array name="quickspace_psa_morning">
-        <item>Good morning!</item>
-        <item>Good morning, time to rock!</item>
-        <item>What a beautiful day!</item>
-        <item>Have a nice day!</item>
-        <item>What about a small 5 minutes nap?</item>
-        <item>That\'s one way to wake up.</item>
-        <item>You should change your alarm sounds.</item>
-        <item>Looks like it\'s a beautiful day, isn\'t it?</item>
-        <item>Let\'s get this bread.</item>
-        <item>Check the weather just in case</item>
-        <item>Feeling a bit sleepy yet</item>
-        <item>Have you looked outside yet?</item>
-        <item>Let\'s get this done.</item>
+        <item>A little walk seems nice.</item>
+        <item>Brush your teeth mindfully.</item>
+        <item>Start your day hydrated!</item>
+        <item>Get some exercise!</item>
+        <item>Stretch things out!</item>
+        <item>Start your day with positivity.</item>
+        <item>A nice morning it is!</item>
+        <item>Always check device\'s battery levels!</item>
+        <item>Don\'t forget to prepare breakfast.</item>
+        <item>Check the weather, just in case.</item>
+        <item>Don\'t forget to check your notes!</item>
+        <item>Always check your email/messages.</item>
+        <item>Check your schedule if you have one.</item>
+        <item>Good luck today!</item>
+        <item>Toggling the switch can fix stucked responses.</item>
+        <item>Start your day with any hot beverage.</item>
+        <item>Don\'t forget about protein.</item>
+        <item>Eggs make a simple, nutritious breakfast.</item>
+        <item>Enjoy your breakfast.</item>
     </string-array>
-
+    <string-array name="quickspace_psa_noon">
+        <item>Don\'t forget to stay hydrated!</item>
+        <item>Remember to eat some snacks.</item>
+        <item>UV rays are more harmful in the afternoon.</item>
+        <item>It is afternoon right now.</item>
+        <item>Always check device\'s battery levels!</item>
+        <item>Remember to check your email/messages.</item>
+        <item>Please check your to-do list if you have one.</item>
+        <item>Don\'t forget to prepare your dinner.</item>
+        <item>Enjoy your day.</item>
+        <item>Hang on! The day is almost done!</item>
+        <item>Have some fun.</item>
+    </string-array>
+    <string-array name="quickspace_psa_early_evening">
+        <item>Always stay hydrated!</item>
+        <item>8 hours of sleep is a must.</item>
+        <item>It is evening right now.</item>
+        <item>Remember to full charge me before you sleep.</item>
+        <item>Remember to check your email/messages.</item>
+        <item>Please check your to-do list if you have one.</item>
+        <item>Remember to eat dinner.</item>
+        <item>Always check the lights and sockets.</item>
+        <item>Enjoy the night.</item>
+        <item>Hey there! Give yourself some rest!</item>
+        <item>Relax and do some rest.</item>
+    </string-array>
     <string-array name="quickspace_psa_evening">
-        <item>Good night!</item>
-        <item>Sleep well!</item>
-        <item>See you tomorrow!</item>
-        <item>Sweet dreams!</item>
-        <item>Don\'t stay up too long</item>
-        <item>Have a good sleep</item>
-        <item>Get some sleep</item>
-        <item>Time to relax</item>
-        <item>Enjoy the night!</item>
-        <item>Time to charge the batteries!</item>
-        <item>Tomorrow might be a great day</item>
-        <item>Get your bones ready for tomorrow</item>
+        <item>Don\'t drink too much water before sleeping.</item>
+        <item>It is evening right now.</item>
+        <item>Try to avoid overnight charging if possible.</item>
+        <item>Remember to check your email/messages.</item>
+        <item>Please check your to-do list if you have one.</item>
+        <item>Remember to eat dinner.</item>
+        <item>8 hours of sleep is a must.</item>
+        <item>Enjoy the night.</item>
+        <item>Lugaw is a nice recipe for dinner.</item>
+        <item>Enjoy your sleep.</item>
     </string-array>
-
     <string-array name="quickspace_psa_midnight">
-        <item>Um... good night?</item>
-        <item>It\'s a bit late now</item>
-        <item>You should fix your sleep schedule</item>
-        <item>Are you more productive at this time?</item>
+        <item>Sleep defficiency is bad for your health.</item>
+        <item>Don\'t forget to stay hydrated.</item>
+        <item>Being sleep deficit can break melatonin production.</item>
+        <item>It is midnight right now.</item>
+        <item>Sleeping late is not healthy.</item>
+        <item>You need to sleep now.</item>
+        <item>Don\'t forget to sleep/prepare your breakfast.</item>
+        <item>Enjoy the midnight.</item>
+        <item>Sleep deficiency affects your body clock.</item>
+        <item>Please take care of yourself.</item>
     </string-array>
-
     <string-array name="quickspace_psa_random">
-        <item>Ignorance is Bliss</item>
-        <item>Is it time to flash another update already?</item>
-        <item>Make peace, not war</item>
-        <item>Oh hey, what\'s up?</item>
-        <item>Focus on your tasks</item>
-        <item>How many screenshots do you take?</item>
-        <item>Open goodness with crDroid</item>
-        <item>Spread love, not havoc</item>
-        <item>We didn\'t start the fire!</item>
-        <item>Time for some good music</item>
-        <item>\u003C\u003C\u003C\u003C\u003C\u003C\u003C HEAD</item>
-        <item>You need crDroid Premium to see this</item>
-        <item>Remember the Lineage of the Unicorn</item>
-        <item>Enjoy Xtended battery life</item>
-        <item>Starting from the ground zero</item>
-        <item>We love you 3000</item>
-        <item>Delicious even without Sushi</item>
-        <item>Do something nice today</item>
-        <item>This is best Pixel Experience, isn\'t it?</item>
-        <item>How is everything going?</item>
-        <item>No illusions, welcome to reality!</item>
-        <item>Thank you for your support</item>
-        <item>No festival for Derps - only perfection!</item>
-        <item>One of the buildbot\'s best picks</item>
-        <item>Sanity for your Paranoia</item>
-        <item>Try Ice Cold desserts</item>
-        <item>What a lovely experience, isn\'t it?</item>
-        <item>Evolution is a myth, right?</item>
-        <item>You are what you flash, don\'t be Potato</item>
-        <item>What\'s on your mind?</item>
-        <item>Expecto Patronum</item>
-        <item>Wubba Lubba Dub Dub</item>
-        <item>Winner Winner ....?</item>
-        <item>rm -rf \/</item>
+        <item>There are easter eggs hidden on this ROM.</item>
+        <item>Try checking the weather settings.</item>
+        <item>Try to avoid UV rays during noon.</item>
+        <item>Stay Hydrated!</item>
+        <item>Pringles aren\'t actually potato chips..</item>
+        <item>Laughing can increase bloodflow.</item>
+        <item>Coffee contains antioxidants.</item>
+        <item>Ketchup was once sold as medicine.</item>
+        <item>Cotton candy was invented by a dentist.</item>
+        <item>Don\'t skip your meal!</item>
+        <item>Remember to check device\'s battery levels!</item>
+        <item>Check your email/messages.</item>
+        <item>Check your to-do list if you have one.</item>
+        <item>You can disable quickspace via home settings.</item>
+        <item>Go get them!</item>
+        <item>Time to buy some rice!</item>
+        <item>Time for lunch!</item>
+        <item>Kalamay is made of glutinous rice.</item>
+        <item>All white rice starts brown.</item>
+        <item>Want some soda?</item>
+        <item>Always bring water to stay hydrated.</item>
+        <item>Space smells like seared steak..</item>
+        <item>Enjoy your day!</item>
     </string-array>
     
     <!-- Suggestions -->
