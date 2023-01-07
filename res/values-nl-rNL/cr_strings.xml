@@ -115,7 +115,7 @@
     <string name="show_quickspace_title">In een oogopslag</string>
     <string name="show_quickspace_summary">Toon aan de bovenkant van je startscherm</string>
     <!-- QuickSpace: QuickEvent: Device Intro Event -->
-    <string name="quick_event_rom_intro_welcome">Welkom bij crDroid!</string>
+    <string name="quick_event_rom_intro_welcome">Welkom bij RisingOS!</string>
     <string-array name="welcome_message_variants">
         <item>Geniet van je dag!</item>
         <item>Bedankt dat je voor ons hebt gekozen</item>
@@ -179,12 +179,12 @@
         <item>Hey, hoe gaat het?</item>
         <item>Focus op uw taken</item>
         <item>Hoeveel schermafbeeldingen neem je?</item>
-        <item>Open het goeie met CrDroid</item>
+        <item>Open het goeie met RisingOS</item>
         <item>Verspreid de liefde en niet de vernieling</item>
         <item>We hebben de strijd niet begonnen!</item>
         <item>Tijd voor wat goede muziek</item>
         <item>\u003C\u003C\u003C\u003C\u003C\u003C\u003C HEAD</item>
-        <item>Je hebt crDroid Premium nodig om dit te zien</item>
+        <item>Je hebt RisingOS Premium nodig om dit te zien</item>
         <item>Onthoud de afkomst van de Unicorn</item>
         <item>Geniet van de Xtended batterijduur</item>
         <item>Vanaf nul beginnen</item>
