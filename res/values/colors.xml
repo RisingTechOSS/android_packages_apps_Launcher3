@@ -173,4 +173,5 @@
     <color name="material_color_primary">#445E91</color>
     <color name="material_color_secondary">#575E71</color>
     <color name="material_color_tertiary">#715573</color>
+    <color name="mid_clear_all_background_color">@*android:color/system_neutral2_0</color>
 </resources>
