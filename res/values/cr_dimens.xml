@@ -24,14 +24,14 @@
     <dimen name="overview_scroll_scale">0.88</dimen>
 
      <!-- Meminfo in overview -->
-    <dimen name="meminfo_bottom_margin_gesture">32dp</dimen>
-    <dimen name="meminfo_bottom_margin_three_button">56dp</dimen>
+    <dimen name="meminfo_bottom_margin_gesture">16dp</dimen>
+    <dimen name="meminfo_bottom_margin_three_button">40dp</dimen>
 
     <!-- Search bar margin -->
     <dimen name="all_apps_search_bar_margin_side">38dp</dimen>
 
     <!-- Extra bottom margin for overview TaskViews -->
-    <dimen name="overview_task_extra_top_margin">40dp</dimen>
-    <dimen name="overview_task_extra_bottom_margin">40dp</dimen>
+    <dimen name="overview_task_extra_top_margin">65dp</dimen>
+    <dimen name="overview_task_extra_bottom_margin">65dp</dimen>
 
 </resources>

@@ -26,6 +26,4 @@
 
     <!-- Turn on work apps button -->
     <color name="work_turn_on_stroke">?androidprv:attr/colorAccentSecondaryVariant</color>
-    
-    <color name="mid_clear_all_background_color">@*android:color/system_neutral2_900</color>
 </resources>
