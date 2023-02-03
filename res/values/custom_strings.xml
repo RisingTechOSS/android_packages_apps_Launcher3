@@ -201,4 +201,7 @@
     <string name="about">About</string>
     <string name="about_summary">Info about the Ortus Launcher</string>
     <string name="about_app_version">Version 2.0</string>
+
+   <!-- Recents Scroll Vibration -->
+    <string name="pref_recents_vibration_title">Enable haptic feedback on recents scroll</string>
 </resources>
