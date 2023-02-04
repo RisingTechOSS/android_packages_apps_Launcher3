@@ -103,6 +103,20 @@
            
 
         <Space
+            android:id="@+id/kill_app_space"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/kill_app"
+            style="@style/CustomOverviewActionButton"
+            android:layout_width="60dp"
+            android:layout_height="42dp"
+            android:foreground="@drawable/ic_kill_app_recents"
+            android:foregroundGravity="center"/>
+
+        <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_weight="1" />
