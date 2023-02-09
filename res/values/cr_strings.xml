@@ -354,4 +354,8 @@
     <string name="pref_recents_vibration_title">Enable haptic feedback on recents scroll</string>
     
     <string name="recents_kill_app">Kill app</string>
+
+    <!-- Toast for Clear All, App Locked n Unlocked -->
+    <string name="action_toast_enabled_title">Action Toasts</string>
+    <string name="action_toast_enabled_summary">Enable-disable Toast clear all</string>
 </resources>

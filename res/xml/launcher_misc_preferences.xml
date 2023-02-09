@@ -61,6 +61,13 @@
         settings:units="px"
         android:defaultValue="85" />
 
+    <SwitchPreference
+        android:key="pref_action_toast_enabled"
+        android:title="@string/action_toast_enabled_title"
+        android:summary="@string/action_toast_enabled_summary"
+        android:defaultValue="true"
+        android:persistent="true"/>
+
     <com.android.launcher3.settings.preference.RestartPreference
         android:key="pref_restart"
         android:title="@string/pref_restart_title"
