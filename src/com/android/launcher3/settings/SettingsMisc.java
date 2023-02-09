@@ -301,6 +301,8 @@ public class SettingsMisc extends CollapsingToolbarBaseActivity
                         return true;
                     });
                     return true;
+                case Utilities.KEY_ACTION_TOAST_ENABLED:
+                    return true;
                 case Utilities.KEY_BLUR_DEPTH:
                     return BlurUtils.supportsBlursOnWindows();
                 case SUGGESTIONS_KEY:
