@@ -123,6 +123,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.OverScroller;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.window.PictureInPictureSurfaceTransaction;
 
@@ -4156,6 +4157,11 @@ public abstract class RecentsView<ACTIVITY_TYPE extends StatefulActivity<STATE_T
     @SuppressWarnings("unused")
     private void dismissAllTasks(View view) {
         runDismissAnimation(createAllTasksDismissAnimation(DISMISS_TASK_DURATION));
+        if (Utilities.isActionToastEnabled(mActivity)) {
+            Toast allAppsCleared = Toast.makeText(mActivity, R.string.recents_all_apps_cleared,
+                  Toast.LENGTH_SHORT);
+            allAppsCleared.show();
+        }
         mActivity.getStatsLogManager().logger().log(LAUNCHER_TASK_CLEAR_ALL);
     }
 
@@ -4177,8 +4183,18 @@ public abstract class RecentsView<ACTIVITY_TYPE extends StatefulActivity<STATE_T
             String pkg = t.key.getPackageName();
             if (mLockedTasks.contains(pkg)) {
                 mLockedTasks.remove(pkg);
+                if (Utilities.isActionToastEnabled(mActivity)) {
+                    Toast appUnlocked = Toast.makeText(mActivity, R.string.recents_app_unlocked,
+                          Toast.LENGTH_SHORT);
+                    appUnlocked.show();
+                }
             } else {
                 mLockedTasks.add(pkg);
+                if (Utilities.isActionToastEnabled(mActivity)) {
+                    Toast appLocked = Toast.makeText(mActivity, R.string.recents_app_locked,
+                          Toast.LENGTH_SHORT);
+                    appLocked.show();
+                }
             }
             updateLockIcon(pkg);
         }

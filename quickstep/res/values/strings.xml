@@ -315,4 +315,9 @@
     <string name="desktop_select_app_toast">Adding app to Desktop</string>
     <!-- Text shown on a button that closes the popup for choosing a desktop app. [CHAR_LIMIT=40] -->
     <string name="desktop_button_close_app_toast">Cancel</string>
+
+    <!-- Toast for Clear All -->
+    <string name="recents_all_apps_cleared">All Apps Cleared</string>
+    <string name="recents_app_unlocked">App Unlocked</string>
+    <string name="recents_app_locked">App Locked</string>
 </resources>
