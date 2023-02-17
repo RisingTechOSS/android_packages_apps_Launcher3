@@ -145,15 +145,16 @@
     <string name="quickspace_date_format_minimalistic" translatable="false">EEEE, MMMM d</string>
 
     <!-- QuickSpace: QuickEvent: Device Intro Event -->
-    <string name="quick_event_rom_intro_welcome" translatable="false">Welcome to riceDroid!</string>
+    <string name="quick_event_rom_intro_welcome" translatable="false">Welcome to RisingOS!</string>
+    <string name="quick_event_rom_intro_welcome_ext" translatable="false">RisingOS time!</string>
     <string-array name="welcome_message_variants" translatable="false">
         <item>Have a great day!</item>
-        <item>Thank you for flashing riceDroid!</item>
-        <item>Loving us? Send us a soju!</item>
+        <item>Rising from the bottom!</item>
+        <item>Loving us? Send me a rootbeer!</item>
         <item>We\'re not the best, but at least we try!</item>
-        <item>Share us on twitter! #gtrcd</item>
+        <item>Share us on twitter! #androidrising</item>
         <item>Tap here to begin</item>
-        <item>We love it when you enjoy riceDroid!</item>
+        <item>We love it when you enjoy RisingOS!</item>
     </string-array>
 
     <!-- QuickSpace: QuickEvent: Greetings -->
