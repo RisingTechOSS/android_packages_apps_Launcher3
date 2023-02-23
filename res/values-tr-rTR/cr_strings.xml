@@ -86,8 +86,6 @@
     <string name="label_search">Ara</string>
     <string name="label_lens">Google lens</string>
     <string name="label_voice_search">Sesli arama</string>
-    <string name="dock_music_search_title">Müzik ara</string>
-    <string name="dock_music_search_summary">Mikrofon simgesine basarak müzik aramayı başlatın</string>
     <string name="dock_search_title">Google arama çubuğu</string>
     <string name="dock_search_summary">Alt kısımda arama çubuğu</string>
     <string name="dock_theme_title">Temalı simgeler</string>
@@ -115,7 +113,7 @@
     <string name="show_quickspace_title">Bir Bakışta</string>
     <string name="show_quickspace_summary">Ana ekranınızın üst kısmında göster</string>
     <!-- QuickSpace: QuickEvent: Device Intro Event -->
-    <string name="quick_event_rom_intro_welcome">CrDroid\'e hoş geldiniz!</string>
+    <string name="quick_event_rom_intro_welcome">risingOS\'e hoş geldiniz!</string>
     <string-array name="welcome_message_variants">
         <item>İyi günler</item>
         <item>Bizi seçtiğiniz için teşekkürler</item>
@@ -179,12 +177,12 @@
         <item>Hey, nasıl gidiyor?</item>
         <item>Görevlerinize odaklanın</item>
         <item>Kaç tane ekran görüntüsü alıyorsunuz?</item>
-        <item>crDroid ile iyilik açın</item>
+        <item>risingOS ile iyilik açın</item>
         <item>Sevgiyi yay, tahribatı değil</item>
         <item>Yangını biz başlatmadık!</item>
         <item>Biraz iyi müzik zamanı</item>
         <item>\u003C\u003C\u003C\u003C\u003C\u003C\u003C BAŞ</item>
-        <item>Bunu görmek için crDroid Premium\'a ihtiyacınız var</item>
+        <item>Bunu görmek için risingOS Premium\'a ihtiyacınız var</item>
         <item>Tek boynuzlu Atın soyunu hatırlayın</item>
         <item>Daha uzun pil ömrünün keyfini çıkarın</item>
         <item>Sıfırdan başlayarak</item>
@@ -239,14 +237,27 @@
     <string name="icon_pack_add">Daha fazla yükle</string>
     <string name="icon_pack_no_market">Kullanılabilir uygulama mağazası yok</string>
     <!-- Kill App recents action shortcut -->
-    <string name="recent_task_option_kill_app">Sonlandır</string>
+    <string name="recent_task_option_kill_app">Uygulamayı sonlandır</string>
     <string name="recents_app_killed">Uygulama sonlandırıldı</string>
+
     <!-- Memory info -->
     <string name="meminfo_text">%1$s Mevcut | %2$s Toplam</string>
     <string name="recents_meminfo_title">Bellek bilgisi</string>
+    
+    <!-- QSB -->
+    <string name="qsb_search_hint">Telefonunuzu ve daha fazlasını arayın</string>
+
     <!-- App drawer searchbar -->
     <string name="drawer_search_title">Uygulama arama çubuğu</string>
-    <string name="drawer_search_summary">Uygulama sayfasının üstündeki arama çubuğu</string>
+    <string name="drawer_search_summary">Uygulama çekmecesinin üstünde arama çubuğu</string>
+
+    <!-- About info -->
+    <string name="about_rice_title" translatable="false">Sushi Launcher</string>
+    <string name="about_thanks_cat">Teşekkürler</string>
+    <string name="about">Hakkında</string>
+    <string name="about_summary">Sushi Launcher hakkında bilgiler</string>
+    <string name="about_app_version">Sürüm 2.0</string>
+
     <!-- Restart launcher -->
     <string name="pref_restart_title">Yeniden Başlat</string>
     <string name="pref_restart_summary">Ayarları Uygulamak İçin Yeniden Başlat</string>
@@ -260,4 +271,10 @@
     <string name="short_parallax_summary">Duvar kağıdını kırpmak yerine daha az sayıda sayfada tam duvar kağıdı kaydırma efektini etkinleştirin</string>
     <string name="single_page_center_title">Tek sayfayı ortalayın</string>
     <string name="single_page_center_summary">Yalnızca tek bir sayfa kullanılıyorsa duvar kağıdını ortalayın</string>
+    
+   <!-- Recents Scroll Vibration -->
+    <string name="pref_recents_vibration_title">Son uygulama kaydırma titreşimi</string>
+
+    <string name="recents_kill_app">Uygulamayı sonlandır</string>
 </resources>
+
