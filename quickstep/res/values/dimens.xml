@@ -33,7 +33,7 @@
 
     <!--  Overview Task Views  -->
     <!--  The primary task thumbnail uses up to this much of the total screen height/width  -->
-    <item name="overview_max_scale" format="float" type="dimen">0.6</item>
+    <item name="overview_max_scale" format="float" type="dimen">0.65</item>
     <!--  A touch target for icons, sometimes slightly larger than the icons themselves  -->
     <dimen name="task_thumbnail_icon_size">48dp</dimen>
     <!--  The icon size for the focused task, placed in center of touch target  -->
@@ -44,11 +44,11 @@
     <dimen name="overview_page_spacing">12dp</dimen>
 
     <dimen name="task_icon_cache_default_icon_size">72dp</dimen>
-    <item name="overview_modal_max_scale" format="float" type="dimen">0.6</item>
+    <item name="overview_modal_max_scale" format="float" type="dimen">0.65</item>
 
     <!-- Overrideable in overlay that provides the Overview Actions. -->
-    <dimen name="overview_actions_top_margin">56dp</dimen>
-    <dimen name="overview_actions_height">48dp</dimen>
+    <dimen name="overview_actions_top_margin">36dp</dimen>
+    <dimen name="overview_actions_height">110dp</dimen>
     <dimen name="overview_actions_button_spacing">36dp</dimen>
 
     <!-- These speeds are in dp/s -->
@@ -74,7 +74,7 @@
     <!-- Launcher app transition -->
     <dimen name="closing_window_trans_y">115dp</dimen>
 
-    <dimen name="quick_switch_scaling_scroll_threshold">100dp</dimen>
+    <dimen name="quick_switch_scaling_scroll_threshold">86dp</dimen>
 
     <dimen name="recents_empty_message_text_size">16sp</dimen>
     <dimen name="recents_empty_message_text_padding">16dp</dimen>
