@@ -115,7 +115,7 @@
     <string name="show_quickspace_title">Pe scurt</string>
     <string name="show_quickspace_summary">O copie a widgetului Google dintr-o privire</string>
     <!-- QuickSpace: QuickEvent: Device Intro Event -->
-    <string name="quick_event_rom_intro_welcome">Bine ai venit la crDroid!</string>
+    <string name="quick_event_rom_intro_welcome">Bine ai venit la rising!</string>
     <string-array name="welcome_message_variants">
         <item>O zi bună</item>
         <item>Vă mulțumim că ne-ați ales</item>
@@ -179,12 +179,12 @@
         <item>Oh, hei, ce se întâmplă?</item>
         <item>Focalizează sarcinile tale</item>
         <item>Câte capturi de ecran faceți?</item>
-        <item>Deschide bunătatea cu crDroid</item>
+        <item>Deschide bunătatea cu rising</item>
         <item>Dragostea răsunătoare, nu haos</item>
         <item>Nu am început focul!</item>
         <item>Timp pentru muzica buna</item>
         <item>\u003C\u003C\u003C\u003C\u003C\u003C\u003C HEAD</item>
-        <item>Ai nevoie de crDroid Premium pentru a vedea asta</item>
+        <item>Ai nevoie de rising Premium pentru a vedea asta</item>
         <item>Amintiți-vă Lineage of the Unicorn</item>
         <item>Bucură-te de durata bateriei Xtended</item>
         <item>Pornind de la zero</item>

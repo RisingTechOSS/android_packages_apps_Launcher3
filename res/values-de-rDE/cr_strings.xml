@@ -115,7 +115,7 @@
     <string name="show_quickspace_title">Auf einen Blick</string>
     <string name="show_quickspace_summary">Oben auf dem Startbildschirm anzeigen</string>
     <!-- QuickSpace: QuickEvent: Device Intro Event -->
-    <string name="quick_event_rom_intro_welcome">Willkommen zu crDroid!</string>
+    <string name="quick_event_rom_intro_welcome">Willkommen zu rising!</string>
     <string-array name="welcome_message_variants">
         <item>Schönen Tag dir</item>
         <item>Danke, dass du dich für uns entschieden hast</item>
@@ -179,26 +179,26 @@
         <item>Hey, alles fit?</item>
         <item>Konzentrier dich aufs Wichtige.</item>
         <item>Wie viele Screenshots machst du so?</item>
-        <item>crDroid bietet viele nützliche Anpassungsmöglichkeiten.</item>
+        <item>rising bietet viele nützliche Anpassungsmöglichkeiten.</item>
         <item>Kein Bock auf Havoc.</item>
         <item>We didn’t start the fire!</item>
         <item>Zeit für gute Musik!</item>
         <item>\u003C\u003C\u003C\u003C\u003C\u003C\u003C HEAD</item>
-        <item>crDroid Premium benötigt, um diesen Text freizuschalten.</item>
+        <item>rising Premium benötigt, um diesen Text freizuschalten.</item>
         <item>Lineage &amp; Unicorn haben bei uns nichts verloren.</item>
         <item>Viel Spaß mit der „Xtended“ Akkulaufzeit</item>
         <item>Zu Ground Zero sag ich nie „No“.</item>
         <item>Wir haben dich lieb, mal 3 000</item>
         <item>Sehr schmackhaft, auch ohne Sushi!</item>
         <item>Eine gute Tat pro Tag.</item>
-        <item>crDroid bietet ’ne tolle Pixel-Experience, oder?</item>
+        <item>rising bietet ’ne tolle Pixel-Experience, oder?</item>
         <item>Wie läuft’s bei dir so?</item>
-        <item>Keine Illusionen, willkommen in der crDroid-Realität!</item>
+        <item>Keine Illusionen, willkommen in der rising-Realität!</item>
         <item>Danke für deine Unterstützung!</item>
-        <item>Kein DerpFest, sondern nur Perfektion hier bei crDroid!</item>
+        <item>Kein DerpFest, sondern nur Perfektion hier bei rising!</item>
         <item>Feinste Wahl vom Buildbot.</item>
-        <item>crDroid heilt deine Paranoia.</item>
-        <item>Ice Cold mag cool sein, doch crDroid ist heiß.</item>
+        <item>rising heilt deine Paranoia.</item>
+        <item>Ice Cold mag cool sein, doch rising ist heiß.</item>
         <item>Was für ein schönes Betriebssystem, oder?</item>
         <item>Evolution ist doch nur ein Mythos, oder nicht?</item>
         <item>Du bist, was du flashst. Sei keine Potato.</item>

@@ -115,7 +115,7 @@
     <string name="show_quickspace_title">速览</string>
     <string name="show_quickspace_summary">在主屏幕的顶部显示</string>
     <!-- QuickSpace: QuickEvent: Device Intro Event -->
-    <string name="quick_event_rom_intro_welcome">欢迎使用 crDroid！</string>
+    <string name="quick_event_rom_intro_welcome">欢迎使用 rising！</string>
     <string-array name="welcome_message_variants">
         <item>享受美好的一天！</item>
         <item>感谢您选择我们</item>
@@ -179,12 +179,12 @@
         <item>嘿，怎么啦？</item>
         <item>别忘了要做的事</item>
         <item>你截过多少图片呢？</item>
-        <item>和 crDroid 一起迎接美好</item>
+        <item>和 rising 一起迎接美好</item>
         <item>用爱传递正能量</item>
         <item>我们不发起战争！</item>
         <item>是时候听一些好音乐了</item>
         <item>&lt;&lt;&lt;&lt;&lt;&lt;&lt; 头</item>
-        <item>您需要 crDroid Premium 才能看到此内容</item>
+        <item>您需要 rising Premium 才能看到此内容</item>
         <item>勿忘 Lineage</item>
         <item>享受延长的电池寿命吧</item>
         <item>从零开始</item>

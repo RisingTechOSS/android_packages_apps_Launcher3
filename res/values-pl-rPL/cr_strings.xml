@@ -115,7 +115,7 @@
     <string name="show_quickspace_title">W skrócie</string>
     <string name="show_quickspace_summary">Pokaż w górnej części ekranu głównego</string>
     <!-- QuickSpace: QuickEvent: Device Intro Event -->
-    <string name="quick_event_rom_intro_welcome">Witaj w crDroid!</string>
+    <string name="quick_event_rom_intro_welcome">Witaj w rising!</string>
     <string-array name="welcome_message_variants">
         <item>Pięknego dnia</item>
         <item>Dziękujemy za wybranie nas</item>
@@ -179,12 +179,12 @@
         <item>Hej, co słychać?</item>
         <item>Skoncentruj się na swoich zadaniach</item>
         <item>Ile zrzutów ekranu robisz?</item>
-        <item>Otwórz dobroć z crDroid</item>
+        <item>Otwórz dobroć z rising</item>
         <item>Szerz miłość nie spustoszenie</item>
         <item>Nie rozpoczęliśmy ognia!</item>
         <item>Czas na dobrą muzykę</item>
         <item>\u003C\u003C\u003C\u003C\u003C\u003C\u003C GŁÓWNY</item>
-        <item>Potrzebujesz crDroid Premium, aby to zobaczyć</item>
+        <item>Potrzebujesz rising Premium, aby to zobaczyć</item>
         <item>Ciągle mniej zbugowany niż Cyberpunk</item>
         <item>Ciesz się wydłużonym czasem baterii</item>
         <item>Zaczynamy od początku</item>

@@ -115,7 +115,7 @@
     <string name="show_quickspace_title">Xem nhanh</string>
     <string name="show_quickspace_summary">Hiển thị ở đầu màn hình chính của bạn</string>
     <!-- QuickSpace: QuickEvent: Device Intro Event -->
-    <string name="quick_event_rom_intro_welcome">Chào mừng đến với crDroid!</string>
+    <string name="quick_event_rom_intro_welcome">Chào mừng đến với rising!</string>
     <string-array name="welcome_message_variants">
         <item>Chúc một ngày tốt lành</item>
         <item>Cảm ơn vì đã chọn chúng tôi</item>
@@ -179,12 +179,12 @@
         <item>Oh này, có chuyện gì thế?</item>
         <item>Hãy tập chung vào nhiệm vụ</item>
         <item>Bạn chụp bao nhiêu ảnh chụp màn hình?</item>
-        <item>Mở thứ tốt nhất với crDroid</item>
+        <item>Mở thứ tốt nhất với rising</item>
         <item>Lan tỏa tình yêu, không tàn phá</item>
         <item>Chúng tôi đã không bắt đầu ngọn lửa!</item>
         <item>Khoảng thời gian cho một số bản nhạc hay</item>
         <item>\u003C\u003C\u003C\u003C\u003C\u003C\u003C CÁI ĐẦU</item>
-        <item>Bạn cần crDroid Premium để xem điều này</item>
+        <item>Bạn cần rising Premium để xem điều này</item>
         <item>Hãy nhớ lineage của unicorn</item>
         <item>Tận hưởng thời lượng pin dài hơn</item>
         <item>Bắt đầu từ con số 0</item>

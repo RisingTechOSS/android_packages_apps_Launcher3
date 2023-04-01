@@ -115,7 +115,7 @@
     <string name="show_quickspace_title">Belepillantás</string>
     <string name="show_quickspace_summary">Az Ön kezdőképernyőjének tetején jelenik meg</string>
     <!-- QuickSpace: QuickEvent: Device Intro Event -->
-    <string name="quick_event_rom_intro_welcome">Üdvözöli a crDroid!</string>
+    <string name="quick_event_rom_intro_welcome">Üdvözöli a rising!</string>
     <string-array name="welcome_message_variants">
         <item>Legyen szép napja!</item>
         <item>Köszönjük, hogy minket választott</item>
@@ -179,12 +179,12 @@
         <item>Ó, helló, mi a helyzet?</item>
         <item>Fókuszáljon a feladataira</item>
         <item>Hány képernyőképet készített?</item>
-        <item>Találjon klassz funkciókat a crDroidban</item>
+        <item>Találjon klassz funkciókat a risingban</item>
         <item>Szeretetet árasszon, ne pusztítást</item>
         <item>Nem mi gyújtottunk tüzet!</item>
         <item>Ideje jó zenét hallgatni!</item>
         <item>\u003C\u003C\u003C\u003C\u003C\u003C\u003C FEJ</item>
-        <item>crDroid Prémium-ra van szüksége, hogy láthassa ezt</item>
+        <item>rising Prémium-ra van szüksége, hogy láthassa ezt</item>
         <item>Emlékezzen az Egyszarvú eredetére</item>
         <item>Élvezze a Kiterjesztett akkuidőt</item>
         <item>Induljunk újra nulláról</item>

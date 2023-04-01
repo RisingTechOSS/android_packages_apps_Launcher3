@@ -81,7 +81,7 @@ public class Themes {
     }
 
     public static String getThemedIconPack(Context context) {
-        return Utilities.getPrefs(context).getString(KEY_THEMED_ICON_PACK, null);
+        return LauncherPrefs.getPrefs(context).getString(KEY_THEMED_ICON_PACK, null);
     }
 
     public static String getDefaultBodyFont(Context context) {

@@ -115,7 +115,7 @@
     <string name="show_quickspace_title">Sekilas</string>
     <string name="show_quickspace_summary">Tampilkan di bagian atas layar beranda Anda</string>
     <!-- QuickSpace: QuickEvent: Device Intro Event -->
-    <string name="quick_event_rom_intro_welcome">Selamat datang di crDroid! 𓂀</string>
+    <string name="quick_event_rom_intro_welcome">Selamat datang di rising! 𓂀</string>
     <string-array name="welcome_message_variants">
         <item>Semoga harimu menyenangkan</item>
         <item>Terima kasih telah memilih kami</item>
@@ -179,12 +179,12 @@
         <item>Oh, hai. Gimana kabarmu?</item>
         <item>Fokus pada pekerjaanmu</item>
         <item>Sudah berapa banyak tangkapan layar yang kau ambil?</item>
-        <item>Kebaikan terbuka dengan crDroid</item>
+        <item>Kebaikan terbuka dengan rising</item>
         <item>Sebarkan cinta, bukan malapetaka</item>
         <item>Kami tidak menyalakan api!</item>
         <item>Waktunya untuk musik yang bagus</item>
         <item>\u003C\u003C\u003C\u003C\u003C\u003C\u003C HEAD</item>
-        <item>Anda membutuhkan crDroid Premium untuk melihat ini</item>
+        <item>Anda membutuhkan rising Premium untuk melihat ini</item>
         <item>Ingat garis keturunan Unicorn</item>
         <item>Nikmati daya tahan baterai yang bertambah</item>
         <item>Mulai dari titik nol</item>

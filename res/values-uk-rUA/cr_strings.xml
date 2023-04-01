@@ -115,7 +115,7 @@
     <string name="show_quickspace_title">Найголовніше</string>
     <string name="show_quickspace_summary">Показувати вгорі домашнього екрана</string>
     <!-- QuickSpace: QuickEvent: Device Intro Event -->
-    <string name="quick_event_rom_intro_welcome">Ласкаво просимо до crDroid!</string>
+    <string name="quick_event_rom_intro_welcome">Ласкаво просимо до rising!</string>
     <string-array name="welcome_message_variants">
         <item>Гарного дня</item>
         <item>Дякуємо, що обрали нас</item>
@@ -179,12 +179,12 @@
         <item>Ой, привіт, що трапилося?</item>
         <item>Сфокусуйтеся на ваших справах</item>
         <item>Скільки знімків екрану ви робите?</item>
-        <item>Відкрийте добро з crDroid</item>
+        <item>Відкрийте добро з rising</item>
         <item>Розповсюджуйте любов, а не хаос</item>
         <item>Не ми почали пожежу!</item>
         <item>Час для якоїсь хорошої музики</item>
         <item>Голова</item>
-        <item>Вам потрібен crDroid Premium, щоб побачити це</item>
+        <item>Вам потрібен rising Premium, щоб побачити це</item>
         <item>Згадайте Lineage of the Unicorn</item>
         <item>Насолоджуйтесь тривалим зарядом батареї</item>
         <item>Починаючи з нуля</item>

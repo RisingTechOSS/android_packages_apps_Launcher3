@@ -115,7 +115,7 @@
     <string name="show_quickspace_title">Pikakatselu</string>
     <string name="show_quickspace_summary">Näytä aloitusnäytön yläosassa</string>
     <!-- QuickSpace: QuickEvent: Device Intro Event -->
-    <string name="quick_event_rom_intro_welcome">Tervetuloa crDroidiin!</string>
+    <string name="quick_event_rom_intro_welcome">Tervetuloa risingiin!</string>
     <string-array name="welcome_message_variants">
         <item>Hyvää päivän jatkoa</item>
         <item>Kiitos että valitsit meidät</item>
@@ -179,12 +179,12 @@
         <item>Ai hei, mitä kuuluu?</item>
         <item>Keskity tehtäviisi</item>
         <item>Kuinka monta kuvakaappausta otat?</item>
-        <item>Avaa hyvyys crDroidilla</item>
+        <item>Avaa hyvyys risingilla</item>
         <item>Levitä rakkautta, älä tuhoa</item>
         <item>Emme aloittaneet tulta!</item>
         <item>Aika kuunnella hyvää musiikkia</item>
         <item>\u003C\u003C\u003C\u003C\u003C\u003C\u003C PÄÄ</item>
-        <item>Tarvitset crDroid Premiumin nähdäksesi tämän</item>
+        <item>Tarvitset rising Premiumin nähdäksesi tämän</item>
         <item>Muista yksisarvisen linja</item>
         <item>Nauti pidennetystä akun kestosta</item>
         <item>Aloita alkupisteestä</item>

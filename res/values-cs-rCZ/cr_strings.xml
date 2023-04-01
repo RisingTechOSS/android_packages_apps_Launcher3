@@ -115,7 +115,7 @@
     <string name="show_quickspace_title">At a Glance</string>
     <string name="show_quickspace_summary">Zobrazit v horní části Domovské obrazovky</string>
     <!-- QuickSpace: QuickEvent: Device Intro Event -->
-    <string name="quick_event_rom_intro_welcome">Vítejte v crDroid!</string>
+    <string name="quick_event_rom_intro_welcome">Vítejte v rising!</string>
     <string-array name="welcome_message_variants">
         <item>Mějte krásný den</item>
         <item>Děkujeme, že jste si vybrali právě nás</item>

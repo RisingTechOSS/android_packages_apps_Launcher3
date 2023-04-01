@@ -116,7 +116,7 @@ Mantén presionado para establecer</string>
     <string name="show_quickspace_title">De un vistazo</string>
     <string name="show_quickspace_summary">Mostrar en la parte superior de la pantalla de inicio</string>
     <!-- QuickSpace: QuickEvent: Device Intro Event -->
-    <string name="quick_event_rom_intro_welcome">¡Bienvenido a crDroid!</string>
+    <string name="quick_event_rom_intro_welcome">¡Bienvenido a rising!</string>
     <string-array name="welcome_message_variants">
         <item>Que tengas un buen día</item>
         <item>Gracias por elegirnos</item>
@@ -180,12 +180,12 @@ Mantén presionado para establecer</string>
         <item>Hola, ¿qué pasa?</item>
         <item>Céntrate en tus tareas</item>
         <item>¿Cuántas capturas de pantalla haces?</item>
-        <item>Descubre lo mejor con crDroid</item>
+        <item>Descubre lo mejor con rising</item>
         <item>Esparce amor, no la mierda</item>
         <item>¡No iniciamos el fuego!</item>
         <item>Hora de un poco de buena música</item>
         <item>\u003C\u003C\u003C\u003C\u003C\u003C\u003C HEAD</item>
-        <item>Necesitas crDroid Premium para ver esto</item>
+        <item>Necesitas rising Premium para ver esto</item>
         <item>Recuerda el Linaje (Lineage) del Unicornio (Unicorn)</item>
         <item>Disfruta la vida Xtended de batería</item>
         <item>Empezando de cero</item>
