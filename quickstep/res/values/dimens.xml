@@ -41,7 +41,7 @@
     <!--  The space under the focused task icon  -->
     <dimen name="overview_task_margin">20dp</dimen>
     <!--  The horizontal space between tasks  -->
-    <dimen name="overview_page_spacing">12dp</dimen>
+    <dimen name="overview_page_spacing">36dp</dimen>
 
     <dimen name="task_icon_cache_default_icon_size">72dp</dimen>
     <item name="overview_modal_max_scale" format="float" type="dimen">0.65</item>
