@@ -24,6 +24,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
@@ -50,12 +51,10 @@ import com.android.launcher3.model.WidgetsModel;
 
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
 
-import com.android.internal.util.rising.OmniJawsClient;
-
 /**
  * Settings activity for Launcher.
  */
-public class SettingsHomescreen extends CollapsingToolbarBaseActivity
+public class SettingsGestures extends CollapsingToolbarBaseActivity
         implements OnPreferenceStartFragmentCallback, OnPreferenceStartScreenCallback,
         SharedPreferences.OnSharedPreferenceChangeListener{
 
@@ -90,7 +89,7 @@ public class SettingsHomescreen extends CollapsingToolbarBaseActivity
 
             final FragmentManager fm = getSupportFragmentManager();
             final Fragment f = fm.getFragmentFactory().instantiate(getClassLoader(),
-                    getString(R.string.home_screen_settings_fragment_name));
+                    getString(R.string.gestures_settings_fragment_name));
             f.setArguments(args);
             // Display the fragment as the main content.
             fm.beginTransaction().replace(com.android.settingslib.widget.R.id.content_frame, f).commit();
@@ -101,23 +100,12 @@ public class SettingsHomescreen extends CollapsingToolbarBaseActivity
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) { 
         switch (key) {
-            case Utilities.KEY_DOCK_SEARCH:
-            case Utilities.KEY_DOCK_THEME:
-            case Utilities.KEY_SEARCH_RADIUS:
-            case Utilities.KEY_SHOW_HOTSEAT_BG:
-            case Utilities.KEY_STATUS_BAR:
-            case Utilities.DESKTOP_SHOW_QUICKSPACE:
-            case Utilities.KEY_SHOW_ALT_QUICKSPACE:
-            case Utilities.KEY_SHOW_QUICKSPACE_NOWPLAYING:
-            case Utilities.KEY_SHOW_QUICKSPACE_WEATHER:
-            case Utilities.KEY_SHOW_QUICKSPACE_PSONALITY:
-            case Utilities.KEY_DOCK_MUSIC_SEARCH:
-            case Utilities.KEY_HOTSEAT_OPACITY:
-            case Utilities.KEY_SHORT_PARALLAX:
-            case Utilities.KEY_SINGLE_PAGE_CENTER:
-            case Utilities.KEY_VIBRATION_TOGGLE:
-            case Utilities.KEY_FORCE_MONOCHROME_ICONS:
             case Utilities.KEY_SHAKE_GESTURES_INTENSITY:
+                LauncherAppState.getInstanceNoCreate().setNeedsRestart();
+                break;
+	        case Utilities.KEY_SHAKE_GESTURES:
+	    	    int mGestureAction = Utilities.shakeGestureAction(this);
+	    	    Toast.makeText(this, mGestureAction == 0 ? R.string.shake_gestures_disabled : (mGestureAction == 1 ? R.string.shake_gestures_torch : R.string.shake_gestures_music), Toast.LENGTH_SHORT).show();
                 LauncherAppState.getInstanceNoCreate().setNeedsRestart();
                 break;
             default:
@@ -137,7 +125,7 @@ public class SettingsHomescreen extends CollapsingToolbarBaseActivity
             f.setArguments(args);
             ((DialogFragment) f).show(fm, key);
         } else {
-            startActivity(new Intent(this, SettingsHomescreen.class)
+            startActivity(new Intent(this, SettingsGestures.class)
                     .putExtra(EXTRA_FRAGMENT, fragment)
                     .putExtra(EXTRA_FRAGMENT_ARGS, args));
         }
@@ -154,7 +142,7 @@ public class SettingsHomescreen extends CollapsingToolbarBaseActivity
     public boolean onPreferenceStartScreen(PreferenceFragmentCompat caller, PreferenceScreen pref) {
         Bundle args = new Bundle();
         args.putString(PreferenceFragmentCompat.ARG_PREFERENCE_ROOT, pref.getKey());
-        return startPreference(getString(R.string.home_category_title), args, pref.getKey());
+        return startPreference(getString(R.string.gestures_category_title), args, pref.getKey());
     }
 
     @Override
@@ -169,18 +157,10 @@ public class SettingsHomescreen extends CollapsingToolbarBaseActivity
     /**
      * This fragment shows the launcher preferences.
      */
-    public static class HomescreenSettingsFragment extends PreferenceFragmentCompat {
+    public static class GesturesSettingsFragment extends PreferenceFragmentCompat {
 
         private String mHighLightKey;
         private boolean mPreferenceHighlighted = false;
-
-        private static final String KEY_MINUS_ONE = "pref_enable_minus_one";
-
-        private Preference mShowGoogleAppPref;
-        private Preference mShowGoogleBarPref;
-        private Preference mWeatherPref;
-
-        private OmniJawsClient mWeatherClient;
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -195,7 +175,7 @@ public class SettingsHomescreen extends CollapsingToolbarBaseActivity
             }
 
             getPreferenceManager().setSharedPreferencesName(LauncherFiles.SHARED_PREFERENCES_KEY);
-            setPreferencesFromResource(R.xml.launcher_home_screen_preferences, rootKey);
+            setPreferencesFromResource(R.xml.launcher_gestures_preferences, rootKey);
 
             PreferenceScreen screen = getPreferenceScreen();
             for (int i = screen.getPreferenceCount() - 1; i >= 0; i--) {
@@ -203,17 +183,6 @@ public class SettingsHomescreen extends CollapsingToolbarBaseActivity
                 if (!initPreference(preference)) {
                     screen.removePreference(preference);
                 }
-            }
-
-            mShowGoogleAppPref = screen.findPreference(KEY_MINUS_ONE);
-            mShowGoogleBarPref = screen.findPreference(Utilities.KEY_DOCK_SEARCH);
-            updateIsGoogleAppEnabled();
-
-            mWeatherClient = new OmniJawsClient(getContext());
-            mWeatherPref = screen.findPreference(Utilities.KEY_SHOW_QUICKSPACE_WEATHER);
-            if (!mWeatherClient.isOmniJawsEnabled()) {
-                mWeatherPref.setEnabled(false);
-                mWeatherPref.setSummary(R.string.quick_event_ambient_weather_enabled_info);
             }
 
             if (getActivity() != null && !TextUtils.isEmpty(getPreferenceScreen().getTitle())) {
@@ -254,15 +223,6 @@ public class SettingsHomescreen extends CollapsingToolbarBaseActivity
             return null;
         }
 
-        private void updateIsGoogleAppEnabled() {
-            if (mShowGoogleAppPref != null) {
-                mShowGoogleAppPref.setEnabled(Utilities.isGSAEnabled(getContext()));
-            }
-            if (mShowGoogleBarPref != null) {
-                mShowGoogleBarPref.setEnabled(Utilities.isGSAEnabled(getContext()));
-            }
-        }
-
         /**
          * Initializes a preference. This is called for every preference. Returning false here
          * will remove that preference from the list.
@@ -284,7 +244,6 @@ public class SettingsHomescreen extends CollapsingToolbarBaseActivity
                     requestAccessibilityFocus(getListView());
                 }
             }
-            updateIsGoogleAppEnabled();
         }
 
         private PreferenceHighlighter createHighlighter() {

@@ -17,7 +17,21 @@
 package com.android.launcher3;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Rect;
+import android.media.AudioManager;
+import android.media.MediaMetadataRetriever;
+import android.media.RemoteControlClient;
+import android.media.RemoteController;
+import android.media.session.MediaController;
+import android.media.session.MediaSessionManager;
+import android.media.session.MediaSessionLegacyHelper;
+import android.media.session.PlaybackState;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.ServiceManager;
+import android.os.SystemClock;
+import android.view.KeyEvent;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -27,10 +41,17 @@ import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.android.launcher3.util.ShakeUtils;
+import com.android.launcher3.util.VibratorWrapper;
+
+import com.android.internal.util.rising.systemUtils;
+
+import java.util.List;
+
 /**
  * View class that represents the bottom row of the home screen.
  */
-public class Hotseat extends CellLayout implements Insettable {
+public class Hotseat extends CellLayout implements Insettable, ShakeUtils.OnShakeListener {
 
     // Ratio of empty space, qsb should take up to appear visually centered.
     public static final float QSB_CENTER_FACTOR = .325f;
@@ -41,24 +62,49 @@ public class Hotseat extends CellLayout implements Insettable {
     private boolean mSendTouchToWorkspace;
 
     private final View mQsb;
+    
+    private ShakeUtils mShakeUtils;
+    private AudioManager mAudioManager;
+    private MediaSessionManager mSessionManager;
+
+    private boolean mClientIdLost = true;
+    private String mCurrentTrack = null;
+    
+    private Context mContext;
+    private int mGestureAction;
+    private int mGestureIntensity;
+    private long onShakeTime = 0;
 
     public Hotseat(Context context) {
         this(context, null);
+        mContext = context;
     }
 
     public Hotseat(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
+         mContext = context;
     }
 
     public Hotseat(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        
+         mContext = context;
 
         if (Utilities.showQSB(context)) {
-            mQsb = LayoutInflater.from(context).inflate(R.layout.search_container_hotseat, this, false);
+            mQsb = LayoutInflater.from(mContext).inflate(R.layout.search_container_hotseat, this, false);
         } else {
-            mQsb = LayoutInflater.from(context).inflate(R.layout.empty_view, this, false);
+            mQsb = LayoutInflater.from(mContext).inflate(R.layout.empty_view, this, false);
         }
         addView(mQsb);
+        
+        mAudioManager = (AudioManager) mContext.getSystemService(AudioManager.class);
+        mSessionManager = (MediaSessionManager) mContext.getSystemService(Context.MEDIA_SESSION_SERVICE);
+
+	mGestureAction = Utilities.shakeGestureAction(mContext);
+        mGestureIntensity = Utilities.shakeGestureActionIntensity(mContext);
+        mShakeUtils = new ShakeUtils(mContext, mGestureIntensity);
+        boolean mGestureEnabled = Utilities.shakeGestureAction(mContext) != 0;
+        mShakeUtils.bindShakeListener(this, mGestureEnabled);
     }
 
     /**
@@ -109,7 +155,7 @@ public class Hotseat extends CellLayout implements Insettable {
             lp.height = grid.hotseatBarSizePx;
         }
 
-        Rect padding = grid.getHotseatLayoutPadding(getContext());
+        Rect padding = grid.getHotseatLayoutPadding(mContext);
         setPadding(padding.left, padding.top, padding.right, padding.bottom);
         setLayoutParams(lp);
         InsettableFrameLayout.dispatchInsets(this, insets);
@@ -206,6 +252,55 @@ public class Hotseat extends CellLayout implements Insettable {
      */
     public View getQsb() {
         return mQsb;
+    }
+
+    private boolean isMusicActive() {
+        if (mSessionManager != null) {
+            List<MediaController> controllers = mSessionManager.getActiveSessions(null);
+            for (MediaController controller : controllers) {
+                PlaybackState state = controller.getPlaybackState();
+                if (state != null && state.getState() == PlaybackState.STATE_PLAYING) {
+                        return true;
+                    }
+                }
+        }
+        return mAudioManager != null && mAudioManager.isMusicActive();
+    }
+
+    private void dispatchMediaKeyWithWakeLockToMediaSession(final int keycode) {
+        final MediaSessionLegacyHelper helper = MediaSessionLegacyHelper.getHelper(mContext);
+        if (helper == null) {
+            return;
+        }
+        KeyEvent event = new KeyEvent(SystemClock.uptimeMillis(),
+                SystemClock.uptimeMillis(), KeyEvent.ACTION_DOWN, keycode, 0);
+        helper.sendMediaButtonEvent(event, true);
+        event = KeyEvent.changeAction(event, KeyEvent.ACTION_UP);
+        helper.sendMediaButtonEvent(event, true);
+    }
+
+    public void performShakeAction() {
+        switch (mGestureAction) {
+            case 1:
+                systemUtils.toggleCameraFlash();
+                break;
+            case 2:
+        	dispatchMediaKeyWithWakeLockToMediaSession(isMusicActive() ? KeyEvent.KEYCODE_MEDIA_NEXT : KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE);
+        	break;
+            case 0:
+            default:
+                break;
+	}
+    }
+   @Override
+    public void onShake(double speed) {
+        // Prevent multiple shake callbacks
+        if (SystemClock.elapsedRealtime() - onShakeTime < 1000){
+            return;
+        }
+        onShakeTime = SystemClock.elapsedRealtime();
+	    performShakeAction();
+	    VibratorWrapper.INSTANCE.get(mContext).vibrate(VibratorWrapper.EFFECT_CLICK);
     }
 
 }

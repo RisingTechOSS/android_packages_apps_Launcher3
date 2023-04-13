@@ -69,7 +69,6 @@
             android:title="@string/single_page_center_title"
             android:summary="@string/single_page_center_summary"
             android:defaultValue="false" />
-
     </PreferenceCategory>
 
     <PreferenceCategory

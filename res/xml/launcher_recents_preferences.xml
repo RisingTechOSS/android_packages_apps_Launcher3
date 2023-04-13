@@ -47,6 +47,14 @@
             android:defaultValue="true"
             android:persistent="true" />
 
+        <com.android.launcher3.settings.preferences.CustomSeekBarPreference
+            android:key="shake_clear_intensity"
+            android:title="@string/shake_clear_intensity_title"
+            android:persistent="true"
+            android:max="6"
+            android:min="2"
+            android:defaultValue="4" />
+
         <SwitchPreference
             android:key="pref_recents_kill_app"
             android:title="@string/recents_kill_app"
