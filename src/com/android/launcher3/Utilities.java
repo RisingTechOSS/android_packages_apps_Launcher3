@@ -190,6 +190,9 @@ public final class Utilities {
     public static final String KEY_SINGLE_PAGE_CENTER = "pref_single_page_center";
     public static final String KEY_VIBRATION_TOGGLE = "pref_recents_vibration";
     public static final String KEY_FORCE_MONOCHROME_ICONS = "pref_forced_monochrome_icons";
+    public static final String KEY_SHAKE_GESTURES = "shake_gestures_actions";
+    public static final String KEY_SHAKE_GESTURES_INTENSITY = "shake_gestures_actions_intensity";
+    public static final String KEY_SHAKE_CLEAR_GESTURES_INTENSITY = "shake_clear_intensity";
 
     /**
      * Returns true if theme is dark.
@@ -1015,9 +1018,24 @@ public final class Utilities {
     	SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
     	return prefs.getBoolean(KEY_VIBRATION_TOGGLE, true);
    }
-   
+
     public static boolean enableMonoChromeThemedIcons(Context context) {
     	SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
     	return prefs.getBoolean(KEY_FORCE_MONOCHROME_ICONS, false);
    }
+
+    public static int shakeGestureAction(Context context) {
+        SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
+        return prefs.getInt(KEY_SHAKE_GESTURES, 0);
+    }
+
+    public static int shakeGestureActionIntensity(Context context) {
+        SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
+        return prefs.getInt(KEY_SHAKE_GESTURES_INTENSITY, 4);
+    }
+    
+    public static int shakeClearIntensity(Context context) {
+        SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
+        return prefs.getInt(KEY_SHAKE_CLEAR_GESTURES_INTENSITY, 4);
+    }
 }

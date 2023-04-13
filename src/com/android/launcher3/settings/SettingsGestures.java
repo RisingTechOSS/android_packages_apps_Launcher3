@@ -24,6 +24,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
@@ -53,7 +54,7 @@ import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
 /**
  * Settings activity for Launcher.
  */
-public class SettingsRecents extends CollapsingToolbarBaseActivity
+public class SettingsGestures extends CollapsingToolbarBaseActivity
         implements OnPreferenceStartFragmentCallback, OnPreferenceStartScreenCallback,
         SharedPreferences.OnSharedPreferenceChangeListener{
 
@@ -88,7 +89,7 @@ public class SettingsRecents extends CollapsingToolbarBaseActivity
 
             final FragmentManager fm = getSupportFragmentManager();
             final Fragment f = fm.getFragmentFactory().instantiate(getClassLoader(),
-                    getString(R.string.recents_settings_fragment_name));
+                    getString(R.string.gestures_settings_fragment_name));
             f.setArguments(args);
             // Display the fragment as the main content.
             fm.beginTransaction().replace(com.android.settingslib.widget.R.id.content_frame, f).commit();
@@ -99,7 +100,12 @@ public class SettingsRecents extends CollapsingToolbarBaseActivity
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) { 
         switch (key) {
-            case Utilities.KEY_SHAKE_CLEAR_GESTURES_INTENSITY:
+            case Utilities.KEY_SHAKE_GESTURES_INTENSITY:
+                LauncherAppState.getInstanceNoCreate().setNeedsRestart();
+                break;
+	        case Utilities.KEY_SHAKE_GESTURES:
+	    	    int mGestureAction = Utilities.shakeGestureAction(this);
+	    	    Toast.makeText(this, mGestureAction == 0 ? R.string.shake_gestures_disabled : (mGestureAction == 1 ? R.string.shake_gestures_torch : R.string.shake_gestures_music), Toast.LENGTH_SHORT).show();
                 LauncherAppState.getInstanceNoCreate().setNeedsRestart();
                 break;
             default:
@@ -119,7 +125,7 @@ public class SettingsRecents extends CollapsingToolbarBaseActivity
             f.setArguments(args);
             ((DialogFragment) f).show(fm, key);
         } else {
-            startActivity(new Intent(this, SettingsRecents.class)
+            startActivity(new Intent(this, SettingsGestures.class)
                     .putExtra(EXTRA_FRAGMENT, fragment)
                     .putExtra(EXTRA_FRAGMENT_ARGS, args));
         }
@@ -136,7 +142,7 @@ public class SettingsRecents extends CollapsingToolbarBaseActivity
     public boolean onPreferenceStartScreen(PreferenceFragmentCompat caller, PreferenceScreen pref) {
         Bundle args = new Bundle();
         args.putString(PreferenceFragmentCompat.ARG_PREFERENCE_ROOT, pref.getKey());
-        return startPreference(getString(R.string.recents_category_title), args, pref.getKey());
+        return startPreference(getString(R.string.gestures_category_title), args, pref.getKey());
     }
 
     @Override
@@ -151,7 +157,7 @@ public class SettingsRecents extends CollapsingToolbarBaseActivity
     /**
      * This fragment shows the launcher preferences.
      */
-    public static class RecentsSettingsFragment extends PreferenceFragmentCompat {
+    public static class GesturesSettingsFragment extends PreferenceFragmentCompat {
 
         private String mHighLightKey;
         private boolean mPreferenceHighlighted = false;
@@ -169,7 +175,7 @@ public class SettingsRecents extends CollapsingToolbarBaseActivity
             }
 
             getPreferenceManager().setSharedPreferencesName(LauncherFiles.SHARED_PREFERENCES_KEY);
-            setPreferencesFromResource(R.xml.launcher_recents_preferences, rootKey);
+            setPreferencesFromResource(R.xml.launcher_gestures_preferences, rootKey);
 
             PreferenceScreen screen = getPreferenceScreen();
             for (int i = screen.getPreferenceCount() - 1; i >= 0; i--) {

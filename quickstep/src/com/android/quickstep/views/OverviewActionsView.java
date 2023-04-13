@@ -148,18 +148,16 @@ public class OverviewActionsView<T extends OverlayUICallbacks> extends FrameLayo
         mClearAll = prefs.getBoolean(KEY_RECENTS_CLEAR_ALL, true);
         mLens = prefs.getBoolean(KEY_RECENTS_LENS, false);
         prefs.registerOnSharedPreferenceChangeListener(this);
-        mShakeUtils = new ShakeUtils(context);
+        int mShakeClearIntensity = Utilities.shakeClearIntensity(getContext());
+        mShakeUtils = new ShakeUtils(getContext(), mShakeClearIntensity);
         mShakeClearAll = prefs.getBoolean(KEY_RECENTS_SHAKE_CLEAR_ALL, true);
     }
 
     @Override
     public void onVisibilityAggregated(boolean isVisible) {
         super.onVisibilityAggregated(isVisible);
-        if (isVisible) {
-            mShakeUtils.bindShakeListener(this);
-        } else {
-            mShakeUtils.unBindShakeListener(this);
-        }
+        
+        mShakeUtils.bindShakeListener(this, isVisible);
     }
 
     @Override

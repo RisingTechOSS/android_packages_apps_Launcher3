@@ -43,6 +43,18 @@
     </Preference>
 
     <Preference
+        android:key="gestures_settings"
+        android:title="@string/gestures_category_title"
+        android:summary="@string/gestures_category_summary"
+        android:icon="@drawable/ic_settings_gestures"
+        android:layout="@layout/top_level_preference_middle_card">
+    <intent
+            android:action="android.settings.APPLICATION_DETAILS_SETTINGS"
+            android:targetPackage="com.android.launcher3"
+            android:targetClass="com.android.launcher3.settings.SettingsGestures" />
+    </Preference>
+
+    <Preference
         android:key="app_drawer"
         android:title="@string/app_drawer_category_title"
         android:summary="@string/app_drawer_category_summary"

@@ -23,7 +23,10 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import kotlin.math.sqrt
 
-class ShakeUtils(context: Context) : SensorEventListener {
+class ShakeUtils(
+	context: Context, 
+	val shakeIntensity: Int
+	) : SensorEventListener {
     private var mOnShakeListeners: ArrayList<OnShakeListener>? = null
 
     // Last time we triggered shake
@@ -39,14 +42,14 @@ class ShakeUtils(context: Context) : SensorEventListener {
         fun onShake(speed: Double)
     }
 
-    fun bindShakeListener(listener: OnShakeListener?) {
+    fun bindShakeListener(listener: OnShakeListener?, enabled: Boolean) {
         if (listener != null) {
-            mOnShakeListeners?.add(listener)
+            if (enabled) {
+                mOnShakeListeners?.add(listener)
+            } else {
+                mOnShakeListeners?.remove(listener)
+            }
         }
-    }
-
-    fun unBindShakeListener(listener: OnShakeListener) {
-        mOnShakeListeners?.remove(listener)
     }
 
     override fun onSensorChanged(event: SensorEvent) {
@@ -56,7 +59,7 @@ class ShakeUtils(context: Context) : SensorEventListener {
         val curUpdateTime = System.currentTimeMillis()
         // Times between two shakes
         val timeInterval = curUpdateTime - mLastUpdateTime
-        if (timeInterval < SHAKE_INTERVAL_MILLISECOND) {
+        if (timeInterval < (shakeIntensity * 14f)) {
             return
         }
         if (event.values.size < 3) {
@@ -74,7 +77,7 @@ class ShakeUtils(context: Context) : SensorEventListener {
         mLastZ = z
         val speed =
             sqrt((deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ).toDouble()) * 1000.0 / timeInterval
-        if (speed >= SPEED_SHAKE_MILLISECONDS) {
+        if (speed >= shakeIntensity * 100f) {
             startShake(speed)
         }
     }
@@ -98,12 +101,6 @@ class ShakeUtils(context: Context) : SensorEventListener {
 
         //  Minimal time interval of position changes
         private const val MIN_SHAKE_INTERVAL = 1024
-
-        // Minimal shake speed
-        private const val SPEED_SHAKE_MILLISECONDS = 400
-
-        // Minimal time interval between two shakes
-        private const val SHAKE_INTERVAL_MILLISECOND = 55
     }
 
     init {

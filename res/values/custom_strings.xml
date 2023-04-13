@@ -199,6 +199,18 @@
     <string name="perf_dark_status_bar_title">Dark status bar</string>
     <string name="perf_dark_status_bar_summary">Use dark status bar on Home screen</string>
 
+    <!-- Gestures -->
+    <string name="gestures_category_title">Gestures settings</string>
+    <string name="gestures_category_summary">Configure shake gesture settings</string>
+    <string name="shake_clear_summary">Or Shake phone to clear recents</string>
+    <string name="shake_clear_intensity_title">Shake phone to clear recents intensity</string>
+    <string name="shake_gesture_actions_title">Shake gesture actions</string>
+    <string name="shake_gesture_actions_intensity_title">Shake gestures Intensity</string>
+    <string name="shake_gestures_disabled">Shake gestures disabled</string>
+    <string name="shake_gestures_torch">Shake device to enable/disable torch</string>
+    <string name="shake_gestures_music">Shake device to play/pause/skip music (depends on playback device)</string>
+    
+
     <!-- About info -->
     <string name="about_rice_title" translatable="false">Ortus Launcher</string>
     <string name="about_thanks_cat">Special thanks to</string>
