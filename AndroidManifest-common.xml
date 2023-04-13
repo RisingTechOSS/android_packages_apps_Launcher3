@@ -218,6 +218,14 @@
             android:autoRemoveFromRecents="true"
             android:parentActivityName="com.android.launcher3.SettingsActivity" />
 
+        <!-- Gestures settings -->
+        <activity
+            android:name="com.android.launcher3.settings.SettingsGestures"
+            android:label="@string/gestures_category_title"
+            android:theme="@style/HomeSettings.Theme"
+            android:exported="true"
+            android:autoRemoveFromRecents="true" />
+
         <provider
             android:name="com.android.launcher3.testing.TestInformationProvider"
             android:authorities="${packageName}.TestInfo"

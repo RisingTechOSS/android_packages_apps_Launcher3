@@ -110,6 +110,7 @@ public class SettingsHomescreen extends CollapsingToolbarBaseActivity
             case Utilities.KEY_SINGLE_PAGE_CENTER:
             case Utilities.KEY_VIBRATION_TOGGLE:
             case Utilities.KEY_FORCE_MONOCHROME_ICONS:
+            case Utilities.KEY_SHAKE_GESTURES_INTENSITY:
                 LauncherAppState.getInstanceNoCreate().setNeedsRestart();
                 break;
             default:
