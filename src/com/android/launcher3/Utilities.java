@@ -185,6 +185,7 @@ public final class Utilities {
     public static final String KEY_SHOW_QUICKSPACE_PSONALITY = "pref_quickspace_psonality";
     public static final String KEY_SHOW_QUICKSPACE_NOWPLAYING = "pref_quickspace_np";
     public static final String KEY_SHOW_QUICKSPACE_WEATHER = "pref_quickspace_weather";
+    public static final String KEY_SHOW_QUICKSPACE_DETAILED_WEATHER = "pref_quickspace_detailed_weather";
     public static final String KEY_RECENTS_OPACITY = "pref_recents_opacity";
     public static final String KEY_APP_DRAWER_OPACITY = "pref_app_drawer_opacity";
     public static final String KEY_ACTION_TOAST_ENABLED = "pref_action_toast_enabled";
@@ -1008,6 +1009,11 @@ public final class Utilities {
     public static boolean isQuickspaceWeather(Context context) {
         SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
         return prefs.getBoolean(KEY_SHOW_QUICKSPACE_WEATHER, true);
+    }
+    
+    public static boolean isQuickSpaceWeatherDetailed(Context context) {
+        SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
+        return prefs.getBoolean(KEY_SHOW_QUICKSPACE_DETAILED_WEATHER, true);
     }
 
     public static int getRecentsOpacity(Context context) {
