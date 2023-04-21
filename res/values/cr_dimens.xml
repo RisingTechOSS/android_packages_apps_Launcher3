@@ -23,7 +23,7 @@
     <dimen name="quickspace_alternate_subtitle_size">16sp</dimen>
 
     <!-- Overview scrolling scale animation -->
-    <dimen name="overview_scroll_scale">0.88</dimen>
+    <dimen name="overview_scroll_scale">0.95</dimen>
 
      <!-- Meminfo in overview -->
     <dimen name="meminfo_bottom_margin_gesture">8dp</dimen>

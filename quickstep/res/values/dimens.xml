@@ -48,7 +48,7 @@
 
     <!-- Overrideable in overlay that provides the Overview Actions. -->
     <dimen name="overview_actions_top_margin">36dp</dimen>
-    <dimen name="overview_actions_height">110dp</dimen>
+    <dimen name="overview_actions_height">138dp</dimen>
     <dimen name="overview_actions_button_spacing">36dp</dimen>
 
     <!-- These speeds are in dp/s -->
