@@ -18,12 +18,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:launcher="http://schemas.android.com/apk/res-auto">
 
+    <PreferenceCategory 
+        android:title="@string/settings_category" >
+
     <Preference
         android:key="icons"
         android:title="@string/icons_category_title"
         android:summary="@string/icons_category_summary"
         android:icon="@drawable/ic_settings_icons"
-        android:layout="@layout/arc_card_about">
+        android:layout="@layout/top_level_preference_top_card">
     <intent
             android:action="android.settings.APPLICATION_DETAILS_SETTINGS"
             android:targetPackage="com.android.launcher3"
@@ -35,7 +38,7 @@
         android:title="@string/home_category_title"
         android:summary="@string/home_category_summary"
         android:icon="@drawable/ic_settings_homescreen"
-        android:layout="@layout/arc_card_about">
+        android:layout="@layout/top_level_preference_middle_card">
     <intent
             android:action="android.settings.APPLICATION_DETAILS_SETTINGS"
             android:targetPackage="com.android.launcher3"
@@ -59,7 +62,7 @@
         android:title="@string/app_drawer_category_title"
         android:summary="@string/app_drawer_category_summary"
         android:icon="@drawable/ic_settings_appdrawer"
-        android:layout="@layout/arc_card_about">
+        android:layout="@layout/top_level_preference_middle_card">
     <intent
             android:action="android.settings.APPLICATION_DETAILS_SETTINGS"
             android:targetPackage="com.android.launcher3"
@@ -71,7 +74,7 @@
         android:title="@string/recents_category_title"
         android:summary="@string/recents_category_summary"
         android:icon="@drawable/ic_settings_recents"
-        android:layout="@layout/arc_card_about">
+        android:layout="@layout/top_level_preference_middle_card">
     <intent
             android:action="android.settings.APPLICATION_DETAILS_SETTINGS"
             android:targetPackage="com.android.launcher3"
@@ -83,7 +86,7 @@
         android:title="@string/misc_category_title"
         android:summary="@string/misc_category_summary"
         android:icon="@drawable/ic_settings_misc"
-        android:layout="@layout/arc_card_about">
+        android:layout="@layout/top_level_preference_middle_card">
     <intent
             android:action="android.settings.APPLICATION_DETAILS_SETTINGS"
             android:targetPackage="com.android.launcher3"
@@ -95,11 +98,13 @@
         android:title="@string/about"
         android:summary="@string/about_summary"
         android:icon="@drawable/ic_settings_about"
-        android:layout="@layout/arc_card_about">
+        android:layout="@layout/top_level_preference_bottom_card">
     <intent
             android:action="android.settings.APPLICATION_DETAILS_SETTINGS"
             android:targetPackage="com.android.launcher3"
             android:targetClass="com.android.launcher3.settings.SettingsAbout" />
     </Preference>
+
+    </PreferenceCategory>
 
 </androidx.preference.PreferenceScreen>
