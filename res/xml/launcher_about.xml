@@ -19,7 +19,7 @@ xmlns:settings="http://schemas.android.com/apk/res-auto">
             android:key="about_credit01"
             android:title="Lawnchair team"
             android:icon="@drawable/ic_android_version"
-            settings:layout="@layout/arc_card_about"
+            settings:layout="@layout/top_level_preference_top_card"
             android:persistent="false"
             android:selectable="true">
             <intent
@@ -31,7 +31,7 @@ xmlns:settings="http://schemas.android.com/apk/res-auto">
             android:key="about_credit01"
             android:title="LineageOS"
             android:icon="@drawable/ic_android_version"
-            settings:layout="@layout/arc_card_about"
+            settings:layout="@layout/top_level_preference_middle_card"
             android:persistent="false"
             android:selectable="true">
             <intent
@@ -43,7 +43,7 @@ xmlns:settings="http://schemas.android.com/apk/res-auto">
             android:key="about_credit01"
             android:title="Amir Zaidi (Shade Launcher)"
             android:icon="@drawable/ic_android_version"
-            settings:layout="@layout/arc_card_about"
+            settings:layout="@layout/top_level_preference_middle_card"
             android:persistent="false"
             android:selectable="false">
         </Preference>
@@ -52,7 +52,7 @@ xmlns:settings="http://schemas.android.com/apk/res-auto">
             android:key="about_credit01"
             android:title="Bootleggers ROM"
             android:icon="@drawable/ic_android_version"
-            settings:layout="@layout/arc_card_about"
+            settings:layout="@layout/top_level_preference_middle_card"
             android:persistent="false"
             android:selectable="true">
             <intent
@@ -64,7 +64,7 @@ xmlns:settings="http://schemas.android.com/apk/res-auto">
             android:key="about_credit01"
             android:title="Corvus-AOSP team"
             android:icon="@drawable/ic_android_version"
-            settings:layout="@layout/arc_card_about"
+            settings:layout="@layout/top_level_preference_middle_card"
             android:persistent="false"
             android:selectable="true">
             <intent
@@ -76,7 +76,7 @@ xmlns:settings="http://schemas.android.com/apk/res-auto">
             android:key="about_credit01"
             android:title="crDroid team"
             android:icon="@drawable/ic_android_version"
-            settings:layout="@layout/arc_card_about"
+            settings:layout="@layout/top_level_preference_middle_card"
             android:persistent="false"
             android:selectable="true">
             <intent
@@ -88,7 +88,7 @@ xmlns:settings="http://schemas.android.com/apk/res-auto">
             android:key="about_credit01"
             android:title="Derpfest team"
             android:icon="@drawable/ic_android_version"
-            settings:layout="@layout/arc_card_about"
+            settings:layout="@layout/top_level_preference_middle_card"
             android:persistent="false"
             android:selectable="true">
             <intent
@@ -100,7 +100,7 @@ xmlns:settings="http://schemas.android.com/apk/res-auto">
             android:key="about_credit01"
             android:title="Project Kaleidoscope team"
             android:icon="@drawable/ic_android_version"
-            settings:layout="@layout/arc_card_about"
+            settings:layout="@layout/top_level_preference_bottom_card"
             android:persistent="false"
             android:selectable="true">
             <intent

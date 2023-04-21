@@ -21,7 +21,7 @@
     <string name="google_folder_title" translatable="false">Google</string>
 
     <!-- General -->
-    <string name="settings_title">Home settings</string>
+    <string name="settings_title">Ortus Launcher settings</string>
 
     <!-- Categories -->
     <string name="home_category_title">Home screen</string>
@@ -221,6 +221,7 @@
     <string name="about">About</string>
     <string name="about_summary">Info about the Ortus Launcher</string>
     <string name="about_app_version">Version 2.0</string>
+    <string name="settings_category" >      </string>
 
     <!-- Launcher Vibration -->
     <string name="pref_recents_vibration_title">Enable haptic feedback on recents scroll</string>
