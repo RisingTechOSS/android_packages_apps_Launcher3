@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="@drawable/rising_preference_middle_background_card"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/card_margin_start_aqua"
+    android:layout_marginEnd="@dimen/card_margin_end_aqua"
+    android:layout_marginTop="2dp"
+    android:paddingEnd="6dp"
+    android:paddingStart="20dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="fill_parent"
+        android:layout_marginVertical="6dp"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:id="@id/icon_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp">
+
+            <androidx.preference.internal.PreferenceImageView
+                android:id="@android:id/icon"
+                android:padding="1.5dip"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:tint="?android:attr/colorAccent"
+                app:maxHeight="52.5dp"
+                app:maxWidth="52.5dp" />
+
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1.0"
+            android:layout_marginEnd="10dp">
+            <TextView
+                android:ellipsize="marquee"
+                android:id="@android:id/title"
+                android:fadingEdge="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/op_control_text_color_primary"
+                style="@style/op_control_text_style_h6" />
+
+            <TextView
+                android:id="@android:id/summary"
+                style="@style/op_control_text_style_body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@android:id/title"
+                android:layout_alignStart="@android:id/title"
+                android:layout_alignLeft="@android:id/title"
+                android:layout_marginTop="2.0dip"
+                android:maxLines="4"
+                android:textColor="@color/op_control_text_color_secondary" />
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_alignParentEnd="true"
+            app:cardBackgroundColor="#00000000"
+            app:cardElevation="0dp"
+            app:cardCornerRadius="99dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_arrow"
+                    android:tint="@color/op_control_text_color_secondary" />   
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</LinearLayout>
