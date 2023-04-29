@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Rect;
+import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -136,6 +137,7 @@ public class OverviewActionsView<T extends OverlayUICallbacks> extends FrameLayo
     private boolean mShakeClearAll;
     private boolean mLock;
     private boolean mKillApp;
+    private long onClickTime = 0;
 
     public OverviewActionsView(Context context) {
         this(context, null);
@@ -227,6 +229,11 @@ public class OverviewActionsView<T extends OverlayUICallbacks> extends FrameLayo
         if (mCallbacks == null) {
             return;
         }
+        // let the animation finish by adding onclick timeout (500ms) 
+        if (SystemClock.elapsedRealtime() - onClickTime < 500){
+            return;
+        }
+        onClickTime = SystemClock.elapsedRealtime();
         final int id = view.getId();
         if (id == R.id.action_screenshot) {
             VibratorWrapper.INSTANCE.get(getContext()).vibrate(VibratorWrapper.EFFECT_CLICK);
