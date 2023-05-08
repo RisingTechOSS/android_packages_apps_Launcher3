@@ -40,7 +40,7 @@
     <dimen name="overview_actions_container_height">48dp</dimen>
     
     <!-- Search bar margin -->
-    <dimen name="all_apps_search_bar_margin_top">28dp</dimen>
+    <dimen name="all_apps_search_bar_margin_top">38dp</dimen>
 
     <!-- Preference style -->
     <dimen name="card_margin_start_aqua">20dp</dimen>

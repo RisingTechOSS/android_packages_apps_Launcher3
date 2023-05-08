@@ -30,7 +30,7 @@
     android:maxLines="1"
     android:paddingVertical="12dp"
     android:paddingStart="20dp"
-    android:paddingEnd="12dp"
+    android:paddingEnd="20dp"
     android:layout_marginStart="@dimen/all_apps_search_bar_margin_side"
     android:layout_marginEnd="@dimen/all_apps_search_bar_margin_side"
     android:drawablePadding="16dp"
