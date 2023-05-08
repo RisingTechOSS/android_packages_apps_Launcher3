@@ -83,12 +83,14 @@
         <SwitchPreference
             android:key="pref_show_statusbar"
             android:title="@string/show_statusbar_title"
+            android:summary="@string/show_statusbar_title_summary"
             android:defaultValue="true"
             android:persistent="true" />
 
         <SwitchPreference
             android:key="pref_show_top_shadow"
             android:title="@string/show_top_shadow"
+            android:summary="@string/show_top_shadow_summary"
             android:defaultValue="true"
             android:persistent="true" />
         

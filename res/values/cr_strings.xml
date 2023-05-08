@@ -128,10 +128,12 @@
     <string name="allow_wallpaper_zooming_summary">Zoom in or out the wallpaper when using drawer or recent apps</string>
 
     <!-- Homescreen Statusbar -->
-    <string name="show_statusbar_title">Status Bar</string>
+    <string name="show_statusbar_title">Show status bar</string>
+    <string name="show_statusbar_title_summary">Show/hide the status bar when viewing the home screen</string>
 
     <!-- Top shadow -->
-    <string name="show_top_shadow">Top shadow</string>
+    <string name="show_top_shadow">Enable status bar shadow</string>
+    <string name="show_top_shadow_summary">Add a translucent shadow to the status bar</string>
 
     <!-- Row Height -->
     <string name="row_height_title">Row height</string>
