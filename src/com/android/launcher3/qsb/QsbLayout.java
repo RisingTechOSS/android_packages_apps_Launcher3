@@ -1,5 +1,9 @@
 package com.android.launcher3.qsb;
 
+import static android.view.View.MeasureSpec.EXACTLY;
+import static com.android.launcher3.icons.IconNormalizer.ICON_VISIBLE_AREA_FACTOR;
+import static android.view.View.MeasureSpec.makeMeasureSpec;
+
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -93,16 +97,22 @@ public class QsbLayout extends FrameLayout {
 
         DeviceProfile dp = ActivityContext.lookupContext(mContext).getDeviceProfile();
         int cellWidth = DeviceProfile.calculateCellWidth(requestedWidth, dp.cellLayoutBorderSpacePx.x, dp.numShownHotseatIcons);
-        int iconSize = (int)(Math.round((dp.iconSizePx * 0.92f)));
-        int width = requestedWidth;
-        setMeasuredDimension(width, height);
+        int iconSize = Math.round(ICON_VISIBLE_AREA_FACTOR * dp.iconSizePx);
 
         for (int i = 0; i < getChildCount(); i++) {
-            final View child = getChildAt(i);
-            if (child != null) {
-                measureChildWithMargins(child, widthMeasureSpec, 0, heightMeasureSpec, 0);
-            }
+            View child = getChildAt(i);
+            measureChildWithMargins(child, widthMeasureSpec, 0, heightMeasureSpec, 0);
         }
+
+        int totalWidth = requestedWidth;
+        int totalHeight = height;
+        for (int i = 0; i < getChildCount(); i++) {
+            View child = getChildAt(i);
+            totalWidth = Math.max(totalWidth, child.getMeasuredWidth());
+            totalHeight = Math.max(totalHeight, child.getMeasuredHeight());
+        }
+
+        setMeasuredDimension(totalWidth, totalHeight);
     }
 
     private void setUpMainSearch() {
