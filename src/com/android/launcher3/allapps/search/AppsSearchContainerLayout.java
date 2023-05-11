@@ -69,6 +69,7 @@ public class AppsSearchContainerLayout extends ExtendedEditText
     private final int mContentOverlap;
 
     private final int mSearchSideMargin;
+    private final int searchtopMargin;
 
     public AppsSearchContainerLayout(Context context) {
         this(context, null);
@@ -91,6 +92,8 @@ public class AppsSearchContainerLayout extends ExtendedEditText
                 getResources().getDimensionPixelSize(R.dimen.all_apps_search_bar_content_overlap);
         mSearchSideMargin =
                 getResources().getDimensionPixelSize(R.dimen.all_apps_search_bar_margin_side);
+        searchtopMargin =
+                getResources().getDimensionPixelSize(R.dimen.all_apps_search_bar_margin_top);
     }
 
     @Override
@@ -253,7 +256,7 @@ public class AppsSearchContainerLayout extends ExtendedEditText
     @Override
     public void setInsets(Rect insets) {
         MarginLayoutParams mlp = (MarginLayoutParams) getLayoutParams();
-        mlp.topMargin = insets.top;
+        mlp.topMargin = searchtopMargin;
         requestLayout();
     }
 

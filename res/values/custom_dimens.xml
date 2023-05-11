@@ -24,4 +24,7 @@
 
     <!-- Search bar margin -->
     <dimen name="all_apps_search_bar_margin_side">38dp</dimen>
+
+    <!-- Search bar margin -->
+    <dimen name="all_apps_search_bar_margin_top">28dp</dimen>
 </resources>

@@ -33,7 +33,7 @@
     android:paddingEnd="12dp"
     android:layout_marginStart="@dimen/all_apps_search_bar_margin_side"
     android:layout_marginEnd="@dimen/all_apps_search_bar_margin_side"
-    android:drawablePadding="@dimen/qsb_icon_padding"
+    android:drawablePadding="16dp"
     android:drawableStart="@drawable/ic_super_g_themed"
     android:saveEnabled="false"
     android:scrollHorizontally="true"
