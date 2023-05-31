@@ -27,7 +27,6 @@ import static com.android.launcher3.MotionEventsUtils.isTrackpadMotionEvent;
 import static com.android.launcher3.Utilities.EDGE_NAV_BAR;
 import static com.android.launcher3.anim.AnimatorListeners.forSuccessCallback;
 import static com.android.launcher3.util.NavigationMode.THREE_BUTTONS;
-import static com.android.launcher3.util.VibratorWrapper.OVERVIEW_HAPTIC;
 import static com.android.systemui.shared.system.QuickStepContract.SYSUI_STATE_ONE_HANDED_ACTIVE;
 import static com.android.systemui.shared.system.QuickStepContract.SYSUI_STATE_OVERVIEW_DISABLED;
 
@@ -232,7 +231,7 @@ public class NoButtonNavbarToOverviewTouchController extends PortraitStatesTouch
         mCurrentAnimation.getTarget().removeListener(mClearStateOnCancelListener);
         mCurrentAnimation.dispatchOnCancel();
         mStartedOverview = true;
-        VibratorWrapper.INSTANCE.get(mLauncher).vibrate(OVERVIEW_HAPTIC);
+        VibratorWrapper.INSTANCE.get(mLauncher).vibrate(VibratorWrapper.getVibrationIntensity(mLauncher));
     }
 
     private void maybeSwipeInteractionToOverviewComplete() {
