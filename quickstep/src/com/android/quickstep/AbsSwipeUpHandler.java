@@ -37,7 +37,6 @@ import static com.android.launcher3.uioverrides.QuickstepLauncher.ENABLE_PIP_KEE
 import static com.android.launcher3.util.Executors.MAIN_EXECUTOR;
 import static com.android.launcher3.util.Executors.UI_HELPER_EXECUTOR;
 import static com.android.launcher3.util.SystemUiController.UI_STATE_FULLSCREEN_TASK;
-import static com.android.launcher3.util.VibratorWrapper.OVERVIEW_HAPTIC;
 import static com.android.launcher3.util.window.RefreshRateTracker.getSingleFrameMs;
 import static com.android.quickstep.GestureState.GestureEndTarget.ALL_APPS;
 import static com.android.quickstep.GestureState.GestureEndTarget.HOME;
@@ -808,7 +807,7 @@ public abstract class AbsSwipeUpHandler<T extends StatefulActivity<S>,
         mIsInAllAppsRegion = isInAllAppsRegion;
 
         // Newly entering or exiting the zone - do haptic and animate recent tasks.
-        VibratorWrapper.INSTANCE.get(mContext).vibrate(OVERVIEW_HAPTIC);
+        VibratorWrapper.INSTANCE.get(mContext).vibrate(VibratorWrapper.getVibrationIntensity(mContext));
         maybeUpdateRecentsAttachedState(true);
 
         // Draw active task below Launcher so that All Apps can appear over it.
@@ -2186,7 +2185,7 @@ public abstract class AbsSwipeUpHandler<T extends StatefulActivity<S>,
     }
 
     protected void performHapticFeedback() {
-        VibratorWrapper.INSTANCE.get(mContext).vibrate(OVERVIEW_HAPTIC);
+        VibratorWrapper.INSTANCE.get(mContext).vibrate(VibratorWrapper.getVibrationIntensity(mContext));
     }
 
     public Consumer<MotionEvent> getRecentsViewDispatcher(float navbarRotation) {

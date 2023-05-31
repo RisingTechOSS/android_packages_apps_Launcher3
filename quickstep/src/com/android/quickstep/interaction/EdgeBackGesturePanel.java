@@ -450,7 +450,7 @@ public class EdgeBackGesturePanel extends View {
         boolean isSlow = Math.abs(mVelocityTracker.getXVelocity()) < 500;
         if (isSlow
                 || SystemClock.uptimeMillis() - mVibrationTime >= GESTURE_DURATION_FOR_CLICK_MS) {
-            VibratorWrapper.INSTANCE.get(getContext()).vibrate(VibratorWrapper.EFFECT_CLICK);
+            VibratorWrapper.INSTANCE.get(getContext()).vibrate(VibratorWrapper.getVibrationIntensity(getContext()));
         }
 
         // Let's also snap the angle a bit
@@ -538,7 +538,7 @@ public class EdgeBackGesturePanel extends View {
         // Apply a haptic on drag slop passed
         if (!mDragSlopPassed && touchTranslation > mSwipeThreshold) {
             mDragSlopPassed = true;
-            VibratorWrapper.INSTANCE.get(getContext()).vibrate(VibratorWrapper.EFFECT_CLICK);
+            VibratorWrapper.INSTANCE.get(getContext()).vibrate(VibratorWrapper.getVibrationIntensity(getContext()));
             mVibrationTime = SystemClock.uptimeMillis();
 
             // Let's show the arrow and animate it in!

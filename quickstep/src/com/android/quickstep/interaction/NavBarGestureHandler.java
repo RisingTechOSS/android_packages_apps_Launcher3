@@ -15,7 +15,6 @@
  */
 package com.android.quickstep.interaction;
 
-import static com.android.launcher3.util.VibratorWrapper.OVERVIEW_HAPTIC;
 import static com.android.quickstep.interaction.NavBarGestureHandler.NavBarGestureResult.HOME_GESTURE_COMPLETED;
 import static com.android.quickstep.interaction.NavBarGestureHandler.NavBarGestureResult.HOME_NOT_STARTED_TOO_FAR_FROM_EDGE;
 import static com.android.quickstep.interaction.NavBarGestureHandler.NavBarGestureResult.HOME_OR_OVERVIEW_CANCELLED;
@@ -154,7 +153,7 @@ public class NavBarGestureHandler implements OnTouchListener,
 
     @Override
     public void onMotionPauseDetected() {
-        VibratorWrapper.INSTANCE.get(mContext).vibrate(OVERVIEW_HAPTIC);
+        VibratorWrapper.INSTANCE.get(mContext).vibrate(VibratorWrapper.getVibrationIntensity(mContext));
     }
 
     enum NavBarGestureResult {

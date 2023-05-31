@@ -307,7 +307,7 @@ public class Hotseat extends CellLayout implements Insettable, ShakeUtils.OnShak
         }
         onShakeTime = SystemClock.elapsedRealtime();
         performShakeAction();
-        VibratorWrapper.INSTANCE.get(mContext).vibrate(VibratorWrapper.EFFECT_CLICK);
+        VibratorWrapper.INSTANCE.get(mContext).vibrate(VibratorWrapper.getVibrationIntensity(mContext));
     }
 
 }

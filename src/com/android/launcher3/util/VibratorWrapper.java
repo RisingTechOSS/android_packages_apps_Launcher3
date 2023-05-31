@@ -16,21 +16,16 @@
 package com.android.launcher3.util;
 
 import static android.os.VibrationEffect.createPredefined;
-import static android.provider.Settings.System.HAPTIC_FEEDBACK_ENABLED;
-import static com.android.launcher3.util.Executors.MAIN_EXECUTOR;
 import static com.android.launcher3.util.Executors.UI_HELPER_EXECUTOR;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.content.ContentResolver;
 import android.content.Context;
-import android.database.ContentObserver;
 import android.media.AudioAttributes;
 import android.os.Build;
 import android.os.SystemClock;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
-import android.provider.Settings;
 
 import androidx.annotation.Nullable;
 
@@ -53,23 +48,25 @@ public class VibratorWrapper {
             .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
             .build();
 
+    public static final VibrationEffect EFFECT_TEXTURE_TICK =
+            createPredefined(VibrationEffect.EFFECT_TEXTURE_TICK);
+
+    public static final VibrationEffect EFFECT_TICK =
+            createPredefined(VibrationEffect.EFFECT_TICK);
+
     public static final VibrationEffect EFFECT_CLICK =
             createPredefined(VibrationEffect.EFFECT_CLICK);
+
+    public static final VibrationEffect EFFECT_HEAVY_CLICK =
+            createPredefined(VibrationEffect.EFFECT_HEAVY_CLICK);
 
     private static final float DRAG_TEXTURE_SCALE = 0.03f;
     private static final float DRAG_COMMIT_SCALE = 0.5f;
     private static final float DRAG_BUMP_SCALE = 0.4f;
     private static final int DRAG_TEXTURE_EFFECT_SIZE = 200;
 
-    @Nullable
-    private final VibrationEffect mDragEffect;
-    @Nullable
-    private final VibrationEffect mCommitEffect;
-    @Nullable
-    private final VibrationEffect mBumpEffect;
-
     private long mLastDragTime;
-    private final int mThresholdUntilNextDragCallMillis;
+    private final int mThresholdUntilNextDragCallMillis = 0;
 
     /**
      * Haptic when entering overview.
@@ -78,53 +75,13 @@ public class VibratorWrapper {
 
     private final Vibrator mVibrator;
     private final boolean mHasVibrator;
-
-    private boolean mIsHapticFeedbackEnabled;
+    
+    private Context mContext;
 
     private VibratorWrapper(Context context) {
+        mContext = context;
         mVibrator = context.getSystemService(Vibrator.class);
         mHasVibrator = mVibrator.hasVibrator();
-        if (mHasVibrator) {
-            final ContentResolver resolver = context.getContentResolver();
-            mIsHapticFeedbackEnabled = isHapticFeedbackEnabled(resolver);
-            final ContentObserver observer = new ContentObserver(MAIN_EXECUTOR.getHandler()) {
-                @Override
-                public void onChange(boolean selfChange) {
-                    mIsHapticFeedbackEnabled = isHapticFeedbackEnabled(resolver);
-                }
-            };
-            resolver.registerContentObserver(Settings.System.getUriFor(HAPTIC_FEEDBACK_ENABLED),
-                    false /* notifyForDescendants */, observer);
-        } else {
-            mIsHapticFeedbackEnabled = false;
-        }
-
-        if (Utilities.ATLEAST_S && mVibrator.areAllPrimitivesSupported(
-                VibrationEffect.Composition.PRIMITIVE_LOW_TICK)) {
-
-            // Drag texture, Commit, and Bump should only be used for premium phones.
-            // Before using these haptics make sure check if the device can use it
-            VibrationEffect.Composition dragEffect = VibrationEffect.startComposition();
-            for (int i = 0; i < DRAG_TEXTURE_EFFECT_SIZE; i++) {
-                dragEffect.addPrimitive(
-                        VibrationEffect.Composition.PRIMITIVE_LOW_TICK, DRAG_TEXTURE_SCALE);
-            }
-            mDragEffect = dragEffect.compose();
-            mCommitEffect = VibrationEffect.startComposition().addPrimitive(
-                    VibrationEffect.Composition.PRIMITIVE_TICK, DRAG_COMMIT_SCALE).compose();
-            mBumpEffect = VibrationEffect.startComposition().addPrimitive(
-                    VibrationEffect.Composition.PRIMITIVE_LOW_TICK, DRAG_BUMP_SCALE).compose();
-            int primitiveDuration = mVibrator.getPrimitiveDurations(
-                    VibrationEffect.Composition.PRIMITIVE_LOW_TICK)[0];
-
-            mThresholdUntilNextDragCallMillis =
-                    DRAG_TEXTURE_EFFECT_SIZE * primitiveDuration + 100;
-        } else {
-            mDragEffect = null;
-            mCommitEffect = null;
-            mBumpEffect = null;
-            mThresholdUntilNextDragCallMillis = 0;
-        }
     }
 
     /**
@@ -133,13 +90,13 @@ public class VibratorWrapper {
      *  experience, this should be used in combination with vibrateForDragCommit().
      */
     public void vibrateForDragTexture() {
-        if (mDragEffect == null) {
+        if (isHapticFeedbackEnabled()) {
             return;
         }
         long currentTime = SystemClock.elapsedRealtime();
         long elapsedTimeSinceDrag = currentTime - mLastDragTime;
         if (elapsedTimeSinceDrag >= mThresholdUntilNextDragCallMillis) {
-            vibrate(mDragEffect);
+            vibrate(getVibrationIntensity(mContext));
             mLastDragTime = currentTime;
         }
     }
@@ -148,8 +105,8 @@ public class VibratorWrapper {
      *  This is used when user reaches the commit threshold when swiping to/from from all apps.
      */
     public void vibrateForDragCommit() {
-        if (mCommitEffect != null) {
-            vibrate(mCommitEffect);
+        if (isHapticFeedbackEnabled()) {
+            vibrate(getVibrationIntensity(mContext));
         }
         // resetting dragTexture timestamp to be able to play dragTexture again
         mLastDragTime = 0;
@@ -161,9 +118,33 @@ public class VibratorWrapper {
      *  effect.
      */
     public void vibrateForDragBump() {
-        if (mBumpEffect != null) {
-            vibrate(mBumpEffect);
+        if (isHapticFeedbackEnabled()) {
+            vibrate(getVibrationIntensity(mContext));
         }
+    }
+
+    public static VibrationEffect getVibrationIntensity(Context context) {
+        VibrationEffect effect;
+        int vibIntensity = Utilities.getVibrationIntensity(context);
+        switch (vibIntensity) {
+            case 1:
+                effect = EFFECT_TEXTURE_TICK;
+                break;
+            case 2: 
+                effect = EFFECT_TICK;
+                break;
+            case 3:
+                effect = EFFECT_CLICK;
+                break;
+            case 4:
+                effect = EFFECT_HEAVY_CLICK;
+                break;
+            default:
+                effect = EFFECT_TICK;
+                break;
+        }
+        
+        return effect;
     }
 
     /**
@@ -176,13 +157,15 @@ public class VibratorWrapper {
         // reset dragTexture timestamp to be able to play dragTexture again whenever cancelled
         mLastDragTime = 0;
     }
-    private boolean isHapticFeedbackEnabled(ContentResolver resolver) {
-        return Settings.System.getInt(resolver, HAPTIC_FEEDBACK_ENABLED, 0) == 1;
+
+    private boolean isHapticFeedbackEnabled() {
+        int vibIntensity = Utilities.getVibrationIntensity(mContext);
+        return vibIntensity != 0;
     }
 
     /** Vibrates with the given effect if haptic feedback is available and enabled. */
     public void vibrate(VibrationEffect vibrationEffect) {
-        if (mHasVibrator && mIsHapticFeedbackEnabled) {
+        if (mHasVibrator && isHapticFeedbackEnabled()) {
             UI_HELPER_EXECUTOR.execute(() -> mVibrator.vibrate(vibrationEffect, VIBRATION_ATTRS));
         }
     }
@@ -193,7 +176,7 @@ public class VibratorWrapper {
      */
     @SuppressLint("NewApi")
     public void vibrate(int primitiveId, float primitiveScale, VibrationEffect fallbackEffect) {
-        if (mHasVibrator && mIsHapticFeedbackEnabled) {
+        if (mHasVibrator && isHapticFeedbackEnabled()) {
             UI_HELPER_EXECUTOR.execute(() -> {
                 if (Utilities.ATLEAST_R && primitiveId >= 0
                         && mVibrator.areAllPrimitivesSupported(primitiveId)) {
