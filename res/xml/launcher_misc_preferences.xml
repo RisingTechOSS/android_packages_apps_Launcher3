@@ -39,6 +39,14 @@
         android:persistent="true"
         android:title="@string/pref_recents_vibration_title"/>
 
+        <com.android.launcher3.settings.preferences.CustomSeekBarPreference
+            android:key="pref_vib_intensity"
+            android:title="@string/pref_vib_intensity_title"
+            android:persistent="true"
+            android:max="4"
+            android:min="0"
+            android:defaultValue="0" />
+
     <Preference
         android:key="pref_trust_apps"
         android:title="@string/trust_apps_manager_name" />

@@ -148,6 +148,7 @@ public class SettingsMisc extends CollapsingToolbarBaseActivity
         switch (key) {
             case DeviceProfile.KEY_PHONE_TASKBAR:
             case Utilities.KEY_BLUR_DEPTH:
+            case Utilities.KEY_VIBRATION_INTENSITY:
                 LauncherAppState.getInstanceNoCreate().setNeedsRestart();
                 break;
             default:

@@ -16,7 +16,6 @@
 package com.android.quickstep.interaction;
 
 import static com.android.launcher3.Utilities.squaredHypot;
-import static com.android.launcher3.util.VibratorWrapper.OVERVIEW_HAPTIC;
 import static com.android.quickstep.interaction.NavBarGestureHandler.NavBarGestureResult.ASSISTANT_COMPLETED;
 import static com.android.quickstep.interaction.NavBarGestureHandler.NavBarGestureResult.ASSISTANT_NOT_STARTED_BAD_ANGLE;
 import static com.android.quickstep.interaction.NavBarGestureHandler.NavBarGestureResult.ASSISTANT_NOT_STARTED_SWIPE_TOO_SHORT;
@@ -260,7 +259,7 @@ public class NavBarGestureHandler implements OnTouchListener,
 
     @Override
     public void onMotionPauseDetected() {
-        VibratorWrapper.INSTANCE.get(mContext).vibrate(OVERVIEW_HAPTIC);
+        VibratorWrapper.INSTANCE.get(mContext).vibrate(VibratorWrapper.getVibrationIntensity(mContext));
     }
 
     /**
@@ -292,7 +291,7 @@ public class NavBarGestureHandler implements OnTouchListener,
         if (mGestureCallback != null) {
             mGestureCallback.onNavBarGestureAttempted(ASSISTANT_COMPLETED, velocity);
         }
-        VibratorWrapper.INSTANCE.get(mContext).vibrate(VibratorWrapper.EFFECT_CLICK);
+        VibratorWrapper.INSTANCE.get(mContext).vibrate(VibratorWrapper.getVibrationIntensity(mContext));
         mLaunchedAssistant = true;
     }
 
