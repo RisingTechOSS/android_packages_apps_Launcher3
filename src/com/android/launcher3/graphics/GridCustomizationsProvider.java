@@ -1,5 +1,6 @@
 package com.android.launcher3.graphics;
 
+import static com.android.launcher3.LauncherPrefs.getPrefs;
 import static com.android.launcher3.LauncherPrefs.THEMED_ICONS;
 import static com.android.launcher3.util.Executors.UI_HELPER_EXECUTOR;
 import static com.android.launcher3.util.Themes.KEY_THEMED_ICON_PACK;
