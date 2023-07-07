@@ -62,14 +62,14 @@ public class Hotseat extends CellLayout implements Insettable, ShakeUtils.OnShak
     private boolean mSendTouchToWorkspace;
 
     private final View mQsb;
-    
+
     private ShakeUtils mShakeUtils;
     private AudioManager mAudioManager;
     private MediaSessionManager mSessionManager;
 
     private boolean mClientIdLost = true;
     private String mCurrentTrack = null;
-    
+
     private Context mContext;
     private int mGestureAction;
     private int mGestureIntensity;
@@ -82,13 +82,13 @@ public class Hotseat extends CellLayout implements Insettable, ShakeUtils.OnShak
 
     public Hotseat(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
-         mContext = context;
+        mContext = context;
     }
 
     public Hotseat(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        
-         mContext = context;
+
+        mContext = context;
 
         if (Utilities.showQSB(context)) {
             mQsb = LayoutInflater.from(mContext).inflate(R.layout.search_container_hotseat, this, false);
@@ -96,11 +96,11 @@ public class Hotseat extends CellLayout implements Insettable, ShakeUtils.OnShak
             mQsb = LayoutInflater.from(mContext).inflate(R.layout.empty_view, this, false);
         }
         addView(mQsb);
-        
+
         mAudioManager = (AudioManager) mContext.getSystemService(AudioManager.class);
         mSessionManager = (MediaSessionManager) mContext.getSystemService(Context.MEDIA_SESSION_SERVICE);
 
-	mGestureAction = Utilities.shakeGestureAction(mContext);
+        mGestureAction = Utilities.shakeGestureAction(mContext);
         mGestureIntensity = Utilities.shakeGestureActionIntensity(mContext);
         mShakeUtils = new ShakeUtils(mContext, mGestureIntensity);
         boolean mGestureEnabled = Utilities.shakeGestureAction(mContext) != 0;
@@ -167,8 +167,10 @@ public class Hotseat extends CellLayout implements Insettable, ShakeUtils.OnShak
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        // We allow horizontal workspace scrolling from within the Hotseat. We do this by delegating
-        // touch intercept the Workspace, and if it intercepts, delegating touch to the Workspace
+        // We allow horizontal workspace scrolling from within the Hotseat. We do this
+        // by delegating
+        // touch intercept the Workspace, and if it intercepts, delegating touch to the
+        // Workspace
         // for the remainder of the this input stream.
         int yThreshold = getMeasuredHeight() - getPaddingBottom();
         if (mWorkspace != null && ev.getY() <= yThreshold) {
@@ -199,7 +201,7 @@ public class Hotseat extends CellLayout implements Insettable, ShakeUtils.OnShak
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
         DeviceProfile dp = mActivity.getDeviceProfile();
-        
+
         int qsbWidth = dp.isQsbInline
                 ? dp.hotseatQsbWidth
                 : getShortcutsAndWidgets().getMeasuredWidth();
@@ -260,9 +262,9 @@ public class Hotseat extends CellLayout implements Insettable, ShakeUtils.OnShak
             for (MediaController controller : controllers) {
                 PlaybackState state = controller.getPlaybackState();
                 if (state != null && state.getState() == PlaybackState.STATE_PLAYING) {
-                        return true;
-                    }
+                    return true;
                 }
+            }
         }
         return mAudioManager != null && mAudioManager.isMusicActive();
     }
@@ -285,22 +287,27 @@ public class Hotseat extends CellLayout implements Insettable, ShakeUtils.OnShak
                 systemUtils.toggleCameraFlash();
                 break;
             case 2:
-        	dispatchMediaKeyWithWakeLockToMediaSession(isMusicActive() ? KeyEvent.KEYCODE_MEDIA_NEXT : KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE);
-        	break;
+                dispatchMediaKeyWithWakeLockToMediaSession(
+                        isMusicActive() ? KeyEvent.KEYCODE_MEDIA_NEXT : KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE);
+                break;
+            case 3:
+                mAudioManager.adjustVolume(AudioManager.ADJUST_SAME, AudioManager.FLAG_SHOW_UI);
+                break;
             case 0:
             default:
                 break;
-	}
+        }
     }
-   @Override
+
+    @Override
     public void onShake(double speed) {
         // Prevent multiple shake callbacks
-        if (SystemClock.elapsedRealtime() - onShakeTime < 1000){
+        if (SystemClock.elapsedRealtime() - onShakeTime < 1000) {
             return;
         }
         onShakeTime = SystemClock.elapsedRealtime();
-	    performShakeAction();
-	    VibratorWrapper.INSTANCE.get(mContext).vibrate(VibratorWrapper.EFFECT_CLICK);
+        performShakeAction();
+        VibratorWrapper.INSTANCE.get(mContext).vibrate(VibratorWrapper.EFFECT_CLICK);
     }
 
 }
