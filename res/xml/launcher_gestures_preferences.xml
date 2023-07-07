@@ -28,7 +28,7 @@
             android:key="shake_gestures_actions"
             android:title="@string/shake_gesture_actions_title"
             android:persistent="true"
-            android:max="2"
+            android:max="3"
             android:min="0"
             android:defaultValue="0" />
 
@@ -36,7 +36,7 @@
             android:key="shake_gestures_actions_intensity"
             android:title="@string/shake_gesture_actions_intensity_title"
             android:persistent="true"
-            android:max="6"
+            android:max="10"
             android:min="2"
             android:defaultValue="4" />
 
