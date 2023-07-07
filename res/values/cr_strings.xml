@@ -377,6 +377,7 @@
     <string name="shake_gesture_actions_title">Shake gesture actions</string>
     <string name="shake_gesture_actions_intensity_title">Shake gestures Intensity</string>
     <string name="shake_gestures_disabled">Shake gestures disabled</string>
+    <string name="shake_gestures_volume_panel">Shake device to show volume panel</string>
     <string name="shake_gestures_torch">Shake device to enable/disable torch</string>
     <string name="shake_gestures_music">Shake device to play/pause/skip music (depends on playback device)</string>
     

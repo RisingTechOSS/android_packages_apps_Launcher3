@@ -105,7 +105,24 @@ public class SettingsGestures extends CollapsingToolbarBaseActivity
                 break;
 	        case Utilities.KEY_SHAKE_GESTURES:
 	    	    int mGestureAction = Utilities.shakeGestureAction(this);
-	    	    Toast.makeText(this, mGestureAction == 0 ? R.string.shake_gestures_disabled : (mGestureAction == 1 ? R.string.shake_gestures_torch : R.string.shake_gestures_music), Toast.LENGTH_SHORT).show();
+                int msgResID;
+                switch (mGestureAction) {
+                    case 0:
+                        msgResID = R.string.shake_gestures_disabled;
+                        break;
+                    case 1:
+                        msgResID = R.string.shake_gestures_torch;
+                        break;
+                    case 2:
+                        msgResID = R.string.shake_gestures_music;
+                        break;
+                    case 3:
+                        msgResID = R.string.shake_gestures_volume_panel;
+                        break;
+                    default:
+                        break;
+                }
+                Toast.makeText(this, msgResID, Toast.LENGTH_SHORT).show();
                 LauncherAppState.getInstanceNoCreate().setNeedsRestart();
                 break;
             default:
