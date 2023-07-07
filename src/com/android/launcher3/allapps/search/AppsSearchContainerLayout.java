@@ -140,6 +140,8 @@ public class AppsSearchContainerLayout extends ExtendedEditText
         Drawable sIcon = getContext().getDrawable(R.drawable.ic_allapps_search);
         Drawable lens = getContext().getDrawable(R.drawable.ic_lens_color);
         Drawable lensThemed = getContext().getDrawable(R.drawable.ic_lens_themed);
+        Drawable gIconThemedMono = getContext().getDrawable(R.drawable.ic_super_g_themed_mono);
+        Drawable lensThemedMono = getContext().getDrawable(R.drawable.ic_lens_themed_mono);
 
         // Shift the widget horizontally so that its centered in the parent (b/63428078)
         View parent = (View) getParent();
@@ -151,12 +153,13 @@ public class AppsSearchContainerLayout extends ExtendedEditText
 
         boolean showQSB = Utilities.showQSB(getContext());
         boolean isThemedIconsEnabled = Utilities.isThemedIconsEnabled(getContext());
+        boolean isMonoThemed = Utilities.isMonoChromeSearchThemeEnabled(getContext());
 
         if (showQSB) {
             if (!isThemedIconsEnabled) {
                 setCompoundDrawablesRelativeWithIntrinsicBounds(gIcon, null, lens, null);
             } else {
-                setCompoundDrawablesRelativeWithIntrinsicBounds(gIconThemed, null, lensThemed, null);
+                setCompoundDrawablesRelativeWithIntrinsicBounds(isMonoThemed ? gIconThemedMono : gIconThemed, null, isMonoThemed ? lensThemedMono : lensThemed, null);
             }
         } else {
             setCompoundDrawablesRelativeWithIntrinsicBounds(sIcon, null, lens, null);
