@@ -8,6 +8,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.PorterDuff;
 import android.graphics.Color;
 import android.graphics.drawable.PaintDrawable;
 import android.net.Uri;
@@ -57,11 +58,15 @@ public class QsbLayout extends FrameLayout {
         clipIconRipples();
 
         boolean isThemed = Utilities.isThemedIconsEnabled(mContext);
+        boolean isMonoThemed = Utilities.isMonoChromeSearchThemeEnabled(mContext);
         boolean isMusicSearchEnabled = Utilities.isMusicSearchEnabled(mContext);
 
-        micIcon.setImageResource(isThemed ? (isMusicSearchEnabled ? R.drawable.ic_music_themed : R.drawable.ic_mic_themed) : (isMusicSearchEnabled ? R.drawable.ic_music_color : R.drawable.ic_mic_color));
-        gIcon.setImageResource(isThemed ? R.drawable.ic_super_g_themed : R.drawable.ic_super_g_color);
-        lensIcon.setImageResource(isThemed ? R.drawable.ic_lens_themed : R.drawable.ic_lens_color);
+        micIcon.setImageResource(
+            isThemed ? (isMusicSearchEnabled ? (isMonoThemed ? R.drawable.ic_music_themed_mono : R.drawable.ic_music_themed) : (isMonoThemed ? R.drawable.ic_mic_themed_mono : R.drawable.ic_mic_themed))
+                    : (isMusicSearchEnabled ? R.drawable.ic_music_color : R.drawable.ic_mic_color)
+        );
+        gIcon.setImageResource(isThemed ? (isMonoThemed ? R.drawable.ic_super_g_themed_mono : R.drawable.ic_super_g_themed) : R.drawable.ic_super_g_color);
+        lensIcon.setImageResource(isThemed ? (isMonoThemed ? R.drawable.ic_lens_themed_mono : R.drawable.ic_lens_themed) : R.drawable.ic_lens_color);
 
         setupGIcon();
         setupLensIcon();

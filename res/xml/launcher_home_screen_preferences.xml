@@ -186,7 +186,15 @@
         <SwitchPreference
             android:key="pref_dock_theme"
             android:title="@string/dock_theme_title"
-            android:summary="@string/dock_theme_summary" />
+            android:summary="@string/dock_theme_summary"
+            android:defaultValue="false" />
+            
+        <SwitchPreference
+            android:key="pref_monochrome_search_theme"
+            android:title="@string/monochrome_search_theme_title"
+            android:summary="@string/monochrome_search_theme_summary"
+            android:dependency="pref_dock_theme"
+            android:defaultValue="false" />
 
         <com.android.launcher3.settings.preferences.CustomSeekBarPreference
             android:key="pref_search_radius_size"

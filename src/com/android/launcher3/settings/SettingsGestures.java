@@ -107,9 +107,6 @@ public class SettingsGestures extends CollapsingToolbarBaseActivity
 	    	    int mGestureAction = Utilities.shakeGestureAction(this);
                 int msgResID;
                 switch (mGestureAction) {
-                    case 0:
-                        msgResID = R.string.shake_gestures_disabled;
-                        break;
                     case 1:
                         msgResID = R.string.shake_gestures_torch;
                         break;
@@ -119,7 +116,9 @@ public class SettingsGestures extends CollapsingToolbarBaseActivity
                     case 3:
                         msgResID = R.string.shake_gestures_volume_panel;
                         break;
+                    case 0:
                     default:
+                        msgResID = R.string.shake_gestures_disabled;
                         break;
                 }
                 Toast.makeText(this, msgResID, Toast.LENGTH_SHORT).show();

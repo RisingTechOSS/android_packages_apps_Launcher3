@@ -199,6 +199,7 @@ public final class Utilities {
     public static final String KEY_SHAKE_GESTURES = "shake_gestures_actions";
     public static final String KEY_SHAKE_GESTURES_INTENSITY = "shake_gestures_actions_intensity";
     public static final String KEY_SHAKE_CLEAR_GESTURES_INTENSITY = "shake_clear_intensity";
+    public static final String KEY_MONOCHROME_SEARCH_THEME = "pref_monochrome_search_theme";
 
     /**
      * Returns true if theme is dark.
@@ -1080,4 +1081,9 @@ public final class Utilities {
         SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
         return prefs.getInt(KEY_SHAKE_CLEAR_GESTURES_INTENSITY, 4);
     }
+    
+    public static boolean isMonoChromeSearchThemeEnabled(Context context) {
+    	SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
+    	return prefs.getBoolean(KEY_MONOCHROME_SEARCH_THEME, false);
+   }
 }
