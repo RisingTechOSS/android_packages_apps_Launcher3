@@ -200,6 +200,7 @@ public final class Utilities {
     public static final String KEY_SHAKE_GESTURES_INTENSITY = "shake_gestures_actions_intensity";
     public static final String KEY_SHAKE_CLEAR_GESTURES_INTENSITY = "shake_clear_intensity";
     public static final String KEY_MONOCHROME_SEARCH_THEME = "pref_monochrome_search_theme";
+    public static final String KEY_QUICKSPACE_SHOW_CITY = "pref_quickspace_city";
 
     /**
      * Returns true if theme is dark.
@@ -1085,5 +1086,10 @@ public final class Utilities {
     public static boolean isMonoChromeSearchThemeEnabled(Context context) {
     	SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
     	return prefs.getBoolean(KEY_MONOCHROME_SEARCH_THEME, false);
+   }
+   
+    public static boolean QuickSpaceShowCity(Context context) {
+    	SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
+    	return prefs.getBoolean(KEY_QUICKSPACE_SHOW_CITY, false);
    }
 }

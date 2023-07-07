@@ -157,7 +157,15 @@
             android:dependency="pref_show_quickspace"
             android:defaultValue="true"
             android:persistent="true" />
-            
+
+        <SwitchPreference
+            android:key="pref_quickspace_city"
+            android:title="@string/pref_quickspace_city_title"
+            android:summary="@string/pref_quickspace_city_summary"
+            android:dependency="pref_quickspace_weather"
+            android:defaultValue="false"
+            android:persistent="true" />
+
         <SwitchPreference
             android:key="pref_quickspace_detailed_weather"
             android:title="@string/quick_event_ambient_detailed_weather_title"

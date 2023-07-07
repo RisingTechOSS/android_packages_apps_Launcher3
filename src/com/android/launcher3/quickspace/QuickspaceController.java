@@ -110,6 +110,7 @@ public class QuickspaceController implements NotificationListener.NotificationsC
 
     public String getWeatherTemp() {
     	boolean isDetailed = Utilities.isQuickSpaceWeatherDetailed(mContext);
+    	boolean shouldShowCity = Utilities.QuickSpaceShowCity(mContext);
         if (mWeatherInfo != null) {
             String formattedCondition = mWeatherInfo.condition;
             if (formattedCondition.toLowerCase().contains("clouds")) {
@@ -127,7 +128,7 @@ public class QuickspaceController implements NotificationListener.NotificationsC
             } else if (formattedCondition.toLowerCase().contains("mist")) {
               formattedCondition = "Misty";
             }
-            String weatherTemp = mWeatherInfo.temp + mWeatherInfo.tempUnits + (isDetailed ? " - "  + formattedCondition : "");
+            String weatherTemp = (shouldShowCity ? mWeatherInfo.city : "") + mWeatherInfo.temp + mWeatherInfo.tempUnits + (isDetailed ? " - "  + formattedCondition : "");
             return weatherTemp;
         }
         return null;
