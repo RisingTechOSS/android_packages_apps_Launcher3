@@ -102,22 +102,17 @@ public class QsbLayout extends FrameLayout {
 
         DeviceProfile dp = ActivityContext.lookupContext(mContext).getDeviceProfile();
         int cellWidth = DeviceProfile.calculateCellWidth(requestedWidth, dp.cellLayoutBorderSpacePx.x, dp.numShownHotseatIcons);
-        int iconSize = Math.round(ICON_VISIBLE_AREA_FACTOR * dp.iconSizePx);
+        int iconSize = (int)(Math.round((dp.iconSizePx * 0.92f)));
+        int widthReduction = cellWidth - iconSize;
+        int width = requestedWidth - widthReduction;
+        setMeasuredDimension(width, height);
 
         for (int i = 0; i < getChildCount(); i++) {
-            View child = getChildAt(i);
-            measureChildWithMargins(child, widthMeasureSpec, 0, heightMeasureSpec, 0);
+            final View child = getChildAt(i);
+            if (child != null) {
+                measureChildWithMargins(child, widthMeasureSpec, widthReduction, heightMeasureSpec, 0);
+            }
         }
-
-        int totalWidth = requestedWidth;
-        int totalHeight = height;
-        for (int i = 0; i < getChildCount(); i++) {
-            View child = getChildAt(i);
-            totalWidth = Math.max(totalWidth, child.getMeasuredWidth());
-            totalHeight = Math.max(totalHeight, child.getMeasuredHeight());
-        }
-
-        setMeasuredDimension(totalWidth, totalHeight);
     }
 
     private void setUpMainSearch() {
