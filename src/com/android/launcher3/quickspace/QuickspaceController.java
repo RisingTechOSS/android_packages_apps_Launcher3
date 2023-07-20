@@ -128,7 +128,7 @@ public class QuickspaceController implements NotificationListener.NotificationsC
             } else if (formattedCondition.toLowerCase().contains("mist")) {
               formattedCondition = "Misty";
             }
-            String weatherTemp = (shouldShowCity ? mWeatherInfo.city : "") + mWeatherInfo.temp + mWeatherInfo.tempUnits + (isDetailed ? " - "  + formattedCondition : "");
+            String weatherTemp = (shouldShowCity ? mWeatherInfo.city + " " : "") + mWeatherInfo.temp + mWeatherInfo.tempUnits + (isDetailed ? " - "  + formattedCondition : "");
             return weatherTemp;
         }
         return null;
