@@ -19,19 +19,6 @@
     xmlns:launcher="http://schemas.android.com/apk/res-auto"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.launcher3">
 
-    <SwitchPreference
-        android:key="pref_allapps_themed_icons"
-        android:title="@string/pref_themed_icons_title"
-        android:summary="@string/pref_themed_icons_summary"
-        android:persistent="true" />
-        
-    <SwitchPreference
-        android:key="pref_forced_monochrome_icons"
-        android:title="@string/pref_force_monochrome_themed_icons_title"
-        android:summary="@string/pref_force_monochrome_themed_icons_summary"
-        android:defaultValue="false"
-        android:persistent="true" />
-
    <SwitchPreference
         android:key="pref_drawer_search"
         android:title="@string/drawer_search_title"

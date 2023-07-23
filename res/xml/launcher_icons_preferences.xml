@@ -27,6 +27,19 @@
         android:key="themed_icon_pack"
         android:title="@string/themed_icons_category_title" />
 
+    <SwitchPreference
+        android:key="pref_allapps_themed_icons"
+        android:title="@string/pref_themed_icons_title"
+        android:summary="@string/pref_themed_icons_summary"
+        android:persistent="true" />
+
+    <SwitchPreference
+        android:key="pref_forced_monochrome_icons"
+        android:title="@string/pref_force_monochrome_themed_icons_title"
+        android:summary="@string/pref_force_monochrome_themed_icons_summary"
+        android:defaultValue="false"
+        android:persistent="true" />
+
     <com.android.launcher3.settings.NotificationDotsPreference
         android:key="pref_icon_badging"
         android:title="@string/notification_dots_title"
