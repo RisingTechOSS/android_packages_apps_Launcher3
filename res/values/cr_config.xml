@@ -46,4 +46,6 @@
     <!-- Gestures Settings -->
     <string name="gestures_settings_fragment_name" translatable="false">com.android.launcher3.settings.SettingsGestures$GesturesSettingsFragment</string>
 
+    <!-- Themed Icon pack -->
+    <string name="themed_icon_pack_settings_class" translatable="false">com.android.launcher3.icons.pack.ThemeIconsSettingsFragment</string>
 </resources>

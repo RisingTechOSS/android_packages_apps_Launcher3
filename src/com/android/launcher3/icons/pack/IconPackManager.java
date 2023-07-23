@@ -15,6 +15,7 @@ import static com.android.launcher3.util.Executors.MODEL_EXECUTOR;
 
 import com.android.launcher3.LauncherModel;
 import com.android.launcher3.util.ComponentKey;
+import com.android.launcher3.util.Themes;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -133,6 +134,7 @@ public class IconPackManager extends BroadcastReceiver {
         }
 
         String global = IconDatabase.getGlobal(mContext);
+        String themedIconPack = Themes.getThemedIconPack(mContext);
         if (!global.isEmpty() && !mProviders.containsKey(global)) {
             // The global icon pack has been removed, so reset it.
             // This constraint ensures that the global icon pack is always available,

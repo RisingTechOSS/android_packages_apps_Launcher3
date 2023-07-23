@@ -53,6 +53,7 @@ import com.android.launcher3.R;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.customization.IconDatabase;
 import com.android.launcher3.icons.pack.IconPackSettingsActivity;
+import com.android.launcher3.icons.pack.ThemeIconsSettingsActivity;
 import com.android.launcher3.model.WidgetsModel;
 
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
@@ -234,6 +235,8 @@ public class SettingsIcons extends CollapsingToolbarBaseActivity
             switch (key) {
                 case IconDatabase.KEY_ICON_PACK:
                     updatePreferences();
+                case IconDatabase.KEY_THEMED_ICON_PACK:
+                    updatePreferences();
                     break;
             }
         }
@@ -252,6 +255,9 @@ public class SettingsIcons extends CollapsingToolbarBaseActivity
                     return !WidgetsModel.GO_DISABLE_NOTIFICATION_DOTS;
                 case IconDatabase.KEY_ICON_PACK:
                     setupIconPackPreference(preference);
+                    return true;
+                case IconDatabase.KEY_THEMED_ICON_PACK:
+                    setupThemedIconsPackPreference(preference);
                     return true;
             }
 
@@ -305,6 +311,15 @@ public class SettingsIcons extends CollapsingToolbarBaseActivity
             preference.setSummary(pkgLabel);
             preference.setOnPreferenceClickListener(p -> {
                 startActivity(new Intent(getActivity(), IconPackSettingsActivity.class));
+                return true;
+            });
+        }
+        
+        private void setupThemedIconsPackPreference(Preference preference) {
+            final String pkgLabel = IconDatabase.getGlobalLabelThemedIcons(getActivity());
+            preference.setSummary(pkgLabel);
+            preference.setOnPreferenceClickListener(p -> {
+                startActivity(new Intent(getActivity(), ThemeIconsSettingsActivity.class));
                 return true;
             });
         }

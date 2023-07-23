@@ -241,6 +241,14 @@
             android:exported="true"
             android:autoRemoveFromRecents="true" />
 
+        <!-- Themed icons settings -->
+        <activity
+            android:name="com.android.launcher3.icons.pack.ThemeIconsSettingsActivity"
+            android:label="@string/themed_icons_category_title"
+            android:theme="@style/HomeSettings.Theme"
+            android:exported="true"
+            android:autoRemoveFromRecents="true" />
+
         <provider
             android:name="com.android.launcher3.testing.TestInformationProvider"
             android:authorities="${packageName}.TestInfo"

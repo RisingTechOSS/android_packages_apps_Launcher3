@@ -332,6 +332,8 @@
     <string name="icon_pack_default_label">Default</string>
     <string name="icon_pack_add">Install more</string>
     <string name="icon_pack_no_market">There\'s no available app store</string>
+    <string name="themed_icons_category_title">Themed Icons</string>
+    <string name="themed_icon_pack_disabled">Disabled</string>
    
     <!-- Kill App recents action shortcut -->
     <string name="recent_task_option_kill_app">Kill</string>
