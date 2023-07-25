@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.net.Uri;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -112,19 +113,21 @@ public final class ThemeIconsSettingsActivity extends CollapsingToolbarBaseActiv
             finish();
             return true;
         } else if (id == R.id.menu_icon_pack) {
-            return openMarket();
+            return openSampleUrl();
         } else {
             return super.onOptionsItemSelected(item);
         }
     }
 
-    private boolean openMarket() {
-        final String query = getString(R.string.icon_pack_title);
-        final Intent intent = PackageManagerHelper.getMarketSearchIntent(this, query);
+    private boolean openSampleUrl() {
+        final String url = "https://github.com/WaifuPX-DG/DGicons/releases";
+
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         if (intent.resolveActivity(getPackageManager()) == null) {
-            Toast.makeText(this, R.string.icon_pack_no_market, Toast.LENGTH_LONG)
+            Toast.makeText(this, R.string.icon_pack_no_browser, Toast.LENGTH_LONG)
                 .show();
             return false;
         }
