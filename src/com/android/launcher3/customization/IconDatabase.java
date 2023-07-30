@@ -43,9 +43,14 @@ public class IconDatabase {
 
     public static String getGlobalLabelThemedIcons(Context context) {
         final String disabledLabel = context.getString(R.string.themed_icon_pack_disabled);
+        final String defaultLabel = context.getString(R.string.icon_pack_default_label);
         final String pkgName = getGlobalThemeIcons(context);
         if (pkgName == null || pkgName.equals("disabled")) {
             return disabledLabel;
+        }
+        
+        if (pkgName.equals("com.android.launcher3")) {
+            return defaultLabel;
         }
 
         final PackageManager pm = context.getPackageManager();
@@ -58,10 +63,12 @@ public class IconDatabase {
     }
 
     public static void setGlobalThemedIcons(Context context, String value) {
-        LauncherPrefs.getPrefs(context).edit().putString(KEY_THEMED_ICON_PACK, null).apply();
-        if (value != "disabled") {
-            LauncherPrefs.getPrefs(context).edit().putString(KEY_THEMED_ICON_PACK, value).apply();
+        SharedPreferences.Editor editor = LauncherPrefs.getPrefs(context).edit();
+        editor.putString(KEY_THEMED_ICON_PACK, null);
+        if (!value.equals("disabled")) {
+            editor.putString(KEY_THEMED_ICON_PACK, value);
         }
+        editor.apply();
     }
 
     public static void setGlobal(Context context, String value) {

@@ -128,14 +128,14 @@ public final class ThemeIconsSettingsFragment extends RadioSettingsFragment {
         // Add 3rd party Themed icons
         List<PackageInfo> allInstalledPackages = pm.getInstalledPackages(0);
         final String disableThemeIcons = context.getString(R.string.themed_icon_pack_disabled);
+        final String defaultThemeIcons = context.getString(R.string.icon_pack_default_label);
         availablePacks.add(new IconPackInfo("disabled", disableThemeIcons));
         for (PackageInfo packageInfo : allInstalledPackages) {
             if (hasIconResourceMap(pm, packageInfo)) {
-                if (!packageInfo.packageName.equals("com.android.launcher3")) {
-                    String appLabel = (String) packageInfo.applicationInfo.loadLabel(pm);
-                    availablePacks.add(new IconPackInfo(
-                            packageInfo.packageName, appLabel));
-                }
+                String appLabel = packageInfo.packageName.equals("com.android.launcher3") ? defaultThemeIcons : (String) packageInfo.applicationInfo.loadLabel(pm);
+                String appName = packageInfo.packageName;
+                availablePacks.add(new IconPackInfo(
+                            appName, appLabel));
             }
         }
 

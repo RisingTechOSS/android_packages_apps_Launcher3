@@ -32,6 +32,7 @@ import com.android.launcher3.util.Themes;
 import org.xmlpull.v1.XmlPullParser;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -78,7 +79,7 @@ public class LauncherIconProvider extends IconProvider {
     }
 
     private Map<String, ThemeData> getThemedIconMap(String themedIconPack) {
-        ArrayMap<String, ThemeData> map = new ArrayMap<>();
+        HashMap<String, ThemeData> map = new HashMap<>();
         Resources res = mContext.getResources();
         boolean themedIconPackAvailable = false;
         if (themedIconPack != null) {
