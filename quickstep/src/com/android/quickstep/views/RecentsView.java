@@ -894,6 +894,10 @@ public abstract class RecentsView<ACTIVITY_TYPE extends StatefulActivity<STATE_T
         return mIsRtl;
     }
 
+    public boolean isScrolledFinished() {
+        return mTaskListChangeId != -1 && mScroller.isFinished();
+    }
+
     @Override
     protected void initEdgeEffect() {
         mEdgeGlowLeft = new TranslateEdgeEffect(getContext());
