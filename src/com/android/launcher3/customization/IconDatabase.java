@@ -49,7 +49,7 @@ public class IconDatabase {
             return disabledLabel;
         }
         
-        if (pkgName.equals("com.android.launcher3")) {
+        if (pkgName.trim().toLowerCase().contains("com.android.launcher3")) {
             return defaultLabel;
         }
 
