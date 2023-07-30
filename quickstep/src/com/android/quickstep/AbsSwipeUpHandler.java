@@ -1994,7 +1994,7 @@ public abstract class AbsSwipeUpHandler<T extends StatefulActivity<S>,
                 mRecentsAnimationController.detachNavigationBarFromApp(true);
                 if (mRecentsView.getLandScape()) {
             	    mRecentsView.switchToScreenshot(() -> {
-                	    mRecentsView.finishRecentsAnimation(true /* toRecents */, false /* shouldPip */,
+                	    mRecentsView.finishRecentsAnimation(mRecentsView.isScrolledFinished() /* toRecents */, false /* shouldPip */,
                             null);
             	    });
                 }

@@ -405,6 +405,10 @@ public class TaskViewSimulator implements TransformParams.BuilderProxy {
                 .setWindowCrop(mTmpCropRect)
                 .setCornerRadius(getCurrentCornerRadius());
 
+        if (params.getRecentsSurface() == null) {
+            return;
+        }
+
         // If mDrawsBelowRecents is unset, no reordering will be enforced.
         if (mDrawsBelowRecents != null) {
             // In legacy transitions, the animation leashes remain in same hierarchy in the
