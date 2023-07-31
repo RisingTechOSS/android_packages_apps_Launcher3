@@ -171,6 +171,9 @@ public class QuickSpaceView extends FrameLayout implements AnimatorUpdateListene
         container.setVisibility(View.VISIBLE);
         container.setOnClickListener(hasGoogleApp ? mActionReceiver.getWeatherAction() : null);
         title.setText(weatherTemp);
+        title.setEllipsize(TruncateAt.MARQUEE);
+        title.setMarqueeRepeatLimit(3);
+        title.setSelected(true);
         icon.setImageDrawable(mController.getWeatherIcon());
     }
 

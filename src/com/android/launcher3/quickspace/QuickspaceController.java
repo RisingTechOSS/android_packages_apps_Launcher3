@@ -35,7 +35,9 @@ import com.android.launcher3.notification.NotificationListener;
 import com.android.launcher3.util.PackageUserKey;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class QuickspaceController implements NotificationListener.NotificationsChangedListener, OmniJawsClient.OmniJawsObserver {
 
@@ -109,26 +111,43 @@ public class QuickspaceController implements NotificationListener.NotificationsC
     }
 
     public String getWeatherTemp() {
-    	boolean isDetailed = Utilities.isQuickSpaceWeatherDetailed(mContext);
-    	boolean shouldShowCity = Utilities.QuickSpaceShowCity(mContext);
+        Map<String, String> weatherConditions = new HashMap<>();
+        weatherConditions.put("clouds", mContext.getString(R.string.cloudy));
+        weatherConditions.put("rain", mContext.getString(R.string.rainy));
+        weatherConditions.put("clear", mContext.getString(R.string.sunny));
+        weatherConditions.put("storm", mContext.getString(R.string.stormy));
+        weatherConditions.put("snow", mContext.getString(R.string.snowy));
+        weatherConditions.put("wind", mContext.getString(R.string.windy));
+        weatherConditions.put("mist", mContext.getString(R.string.misty));
+
+        boolean isDetailed = Utilities.isQuickSpaceWeatherDetailed(mContext);
         if (mWeatherInfo != null) {
-            String formattedCondition = mWeatherInfo.condition;
-            if (formattedCondition.toLowerCase().contains("clouds")) {
-               formattedCondition = "Cloudy";
-            } else if (formattedCondition.toLowerCase().contains("rain")) {
-              formattedCondition = "Rainy";
-            } else if (formattedCondition.toLowerCase().contains("clear")) {
-              formattedCondition = "Sunny";
-            } else if (formattedCondition.toLowerCase().contains("storm")) {
-              formattedCondition = "Stormy";
-            } else if (formattedCondition.toLowerCase().contains("snow")) {
-              formattedCondition = "Snowy";
-            } else if (formattedCondition.toLowerCase().contains("wind")) {
-              formattedCondition = "Windy";
-            } else if (formattedCondition.toLowerCase().contains("mist")) {
-              formattedCondition = "Misty";
+            String formattedCondition = mWeatherInfo.condition.toLowerCase();
+            for (Map.Entry<String, String> entry : weatherConditions.entrySet()) {
+                if (formattedCondition.contains(entry.getKey())) {
+                    formattedCondition = entry.getValue();
+                    break;
+                }
             }
-            String weatherTemp = (shouldShowCity ? mWeatherInfo.city + " " : "") + mWeatherInfo.temp + mWeatherInfo.tempUnits + (isDetailed ? " - "  + formattedCondition : "");
+
+            double temperature = Double.parseDouble(mWeatherInfo.temp);
+            String units = mWeatherInfo.tempUnits;
+            double tempC, tempF;
+
+            if (units.equals("°F")) {
+                tempC = (temperature - 32) * 5.0 / 9.0;
+                tempF = temperature;
+            } else {
+                tempC = temperature;
+                tempF = (temperature * 9.0 / 5.0) + 32;
+            }
+
+            boolean shouldShowCity = Utilities.QuickSpaceShowCity(mContext);
+            String weatherTemp = String.format("%d%s \u2022 Today %d° / %d°", 
+                                              units.equals("°F") ? Math.round(tempF) : Math.round(tempC), 
+                                              units, Math.round(tempC), Math.round(tempF)) 
+                                + (shouldShowCity ? " \u2022 " + mWeatherInfo.city : "")
+                                + (isDetailed ? " \u2022 " + formattedCondition : "");
             return weatherTemp;
         }
         return null;

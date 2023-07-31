@@ -299,6 +299,14 @@
     <string name="quick_event_ambient_detailed_weather_summary">Display detailed weather condition and temperature</string>
     <string name="pref_quickspace_city_title">Current City</string>
     <string name="pref_quickspace_city_summary">Display current city</string>
+    <string name="cloudy">Mostly cloudy</string>
+    <string name="rainy">Mostly rainy</string>
+    <string name="sunny">Mostly sunny</string>
+    <string name="stormy">Mostly stormy</string>
+    <string name="snowy">Mostly snowy</string>
+    <string name="windy">Mostly windy</string>
+    <string name="misty">Mostly misty</string>
+    <string name="today">Today</string>
 
     <!-- Background opacity -->
     <string name="background_opacity_title">Background opacity</string>
