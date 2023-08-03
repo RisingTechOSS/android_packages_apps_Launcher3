@@ -221,8 +221,11 @@
     <string name="about_thanks_cat">Special thanks to</string>
     <string name="about">About</string>
     <string name="about_summary">Info about the Ortus Launcher</string>
-    <string name="about_app_version">Version 2.0</string>
+    <string name="about_app_version_title">Ortus Launcher Version</string>
+    <string name="about_app_version">Version 1.3</string>
     <string name="settings_category" >      </string>
+    <string name="sponsors_title">Sponsored by</string>
+    <string name="sponsors">Cherry Mobile</string>
 
     <!-- Launcher Vibration -->
     <string name="pref_recents_vibration_title">Enable haptic feedback on recents scroll</string>
