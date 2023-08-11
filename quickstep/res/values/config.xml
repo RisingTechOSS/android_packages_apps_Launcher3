@@ -37,7 +37,7 @@
     <integer name="assistant_gesture_min_time_threshold">200</integer>
     <integer name="assistant_gesture_corner_deg_threshold">20</integer>
 
-    <string name="wellbeing_provider_pkg" translatable="false">com.google.android.apps.wellbeing</string>
+    <string name="wellbeing_provider_pkg" translatable="false"/>
 
     <dimen name="max_depth_blur_radius">23px</dimen>
 
