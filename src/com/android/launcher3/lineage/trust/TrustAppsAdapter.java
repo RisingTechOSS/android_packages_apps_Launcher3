@@ -37,6 +37,7 @@ import com.android.internal.util.rising.systemUtils;
 import com.android.launcher3.R;
 import com.android.launcher3.lineage.trust.db.TrustComponent;
 
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -108,8 +109,11 @@ class TrustAppsAdapter extends RecyclerView.Adapter<TrustAppsAdapter.ViewHolder>
 
             mProtectedView.setVisibility(hasSecureKeyguard ? View.VISIBLE : View.GONE);
 
-            mHiddenView.setVisibility(systemUtils.launchablePackages(mContext).contains(component.getPackageName()) ?
-                    View.VISIBLE : View.GONE);
+            String[] allowedSystemApps = mContext.getResources().getStringArray(com.android.internal.R.array.config_appLockAllowedSystemApps);
+            boolean isAllowedSystemApp = Arrays.asList(allowedSystemApps).contains(component.getPackageName());
+
+            mHiddenView.setVisibility(systemUtils.launchablePackages(mContext).contains(component.getPackageName()) || isAllowedSystemApp ?
+                                    View.VISIBLE : View.GONE);
 
             mHiddenView.setOnClickListener(v -> {
                 component.invertVisibility();
