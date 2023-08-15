@@ -26,18 +26,18 @@
     <dimen name="overview_scroll_scale">0.95</dimen>
 
      <!-- Meminfo in overview -->
-    <dimen name="meminfo_bottom_margin_gesture">8dp</dimen>
+    <dimen name="meminfo_bottom_margin_gesture">0dp</dimen>
     <dimen name="meminfo_bottom_margin_three_button">36dp</dimen>
 
     <!-- Search bar margin -->
     <dimen name="all_apps_search_bar_margin_side">38dp</dimen>
 
     <!-- Extra bottom margin for overview TaskViews -->
-    <dimen name="overview_task_extra_top_margin">36dp</dimen>
-    <dimen name="overview_task_extra_bottom_margin">48dp</dimen>
+    <dimen name="overview_task_extra_top_margin">8dp</dimen>
+    <dimen name="overview_task_extra_bottom_margin">12dp</dimen>
 
     <!-- Overview spacing -->
-    <dimen name="overview_actions_container_height">48dp</dimen>
+    <dimen name="overview_actions_container_height">60dp</dimen>
     
     <!-- Search bar margin -->
     <dimen name="all_apps_search_bar_margin_top">38dp</dimen>
@@ -45,4 +45,8 @@
     <!-- Preference style -->
     <dimen name="card_margin_start_aqua">20dp</dimen>
     <dimen name="card_margin_end_aqua">20dp</dimen>
+
+    <dimen name="recents_view_icon_size_height">42dp</dimen>
+    <dimen name="recents_view_icon_size_width">60dp</dimen>
+    <dimen name="overview_actions_container_height_clear_all">48dp</dimen>
 </resources>

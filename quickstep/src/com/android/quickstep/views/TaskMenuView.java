@@ -188,13 +188,9 @@ public class TaskMenuView extends AbstractFloatingView {
         menuOptionView.setOnClickListener(view -> {
             final RecentsView recentsView = mTaskView.getRecentsView();
             recentsView.onGestureAnimationEnd();
-            recentsView.onSwipeUpAnimationSuccess();
-            if (!recentsView.getLandScape()) {
+            if (!recentsView.isLandscapeOrientation()) {
                 menuOption.onClick(view);
-                recentsView.switchToScreenshot(null,
-                        () -> recentsView.finishRecentsAnimation(recentsView.isScrolledFinished() /* toRecents */,
-                                false /* shouldPip */,
-                                null));
+                recentsView.finishRecentsAnimation(true, null);
 	        } else {
 	        	menuOption.onClick(view);
 	        }

@@ -29,9 +29,9 @@
     <LinearLayout
         android:id="@+id/clear_all_container"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/overview_actions_container_height"
+        android:layout_height="@dimen/overview_actions_container_height_clear_all"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="32dp"
         android:orientation="horizontal">
 
         <Space
@@ -60,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/overview_actions_container_height"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="28dp"
         android:orientation="horizontal">
         
         <Space
@@ -72,8 +72,8 @@
         <Button
             android:id="@+id/action_screenshot"
             style="@style/CustomOverviewActionButton"
-            android:layout_width="60dp"
-            android:layout_height="42dp"
+            android:layout_width="@dimen/recents_view_icon_size_width"
+            android:layout_height="@dimen/recents_view_icon_size_height"
             android:foreground="@drawable/ic_screenshot_recents"
             android:foregroundGravity="center" />
 
@@ -87,8 +87,8 @@
         <ImageButton
             android:id="@+id/action_lock"
             style="@style/CustomOverviewActionButton"
-            android:layout_width="60dp"
-            android:layout_height="42dp"
+            android:layout_width="@dimen/recents_view_icon_size_width"
+            android:layout_height="@dimen/recents_view_icon_size_height"
             android:foregroundGravity="center"
             android:visibility="gone" />
 
@@ -102,8 +102,8 @@
         <Button
             android:id="@+id/action_split"
             style="@style/CustomOverviewActionButton"
-            android:layout_width="60dp"
-            android:layout_height="42dp"
+            android:layout_width="@dimen/recents_view_icon_size_width"
+            android:layout_height="@dimen/recents_view_icon_size_height"
             android:foreground="@drawable/ic_split_screen"
             android:foregroundGravity="center" />
 
@@ -118,8 +118,8 @@
             android:id="@+id/action_lens"
             style="@style/CustomOverviewActionButton"
             android:visibility="gone" 
-            android:layout_width="60dp"
-            android:layout_height="42dp"
+            android:layout_width="@dimen/recents_view_icon_size_width"
+            android:layout_height="@dimen/recents_view_icon_size_height"
             android:foreground="@drawable/ic_lens"
             android:foregroundGravity="center" />
 
@@ -134,8 +134,8 @@
             android:id="@+id/kill_app"
             style="@style/CustomOverviewActionButton"
             android:visibility="gone" 
-            android:layout_width="60dp"
-            android:layout_height="42dp"
+            android:layout_width="@dimen/recents_view_icon_size_width"
+            android:layout_height="@dimen/recents_view_icon_size_height"
             android:foreground="@drawable/ic_kill_app_recents"
             android:foregroundGravity="center"/>
 

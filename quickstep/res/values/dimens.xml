@@ -47,8 +47,8 @@
     <item name="overview_modal_max_scale" format="float" type="dimen">0.65</item>
 
     <!-- Overrideable in overlay that provides the Overview Actions. -->
-    <dimen name="overview_actions_top_margin">36dp</dimen>
-    <dimen name="overview_actions_height">138dp</dimen>
+    <dimen name="overview_actions_top_margin">56dp</dimen>
+    <dimen name="overview_actions_height">144dp</dimen>
     <dimen name="overview_actions_button_spacing">36dp</dimen>
 
     <!-- These speeds are in dp/s -->
@@ -74,7 +74,7 @@
     <!-- Launcher app transition -->
     <dimen name="closing_window_trans_y">115dp</dimen>
 
-    <dimen name="quick_switch_scaling_scroll_threshold">86dp</dimen>
+    <dimen name="quick_switch_scaling_scroll_threshold">100dp</dimen>
 
     <dimen name="recents_empty_message_text_size">16sp</dimen>
     <dimen name="recents_empty_message_text_padding">16dp</dimen>

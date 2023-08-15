@@ -1065,13 +1065,9 @@ public class TaskView extends FrameLayout implements Reusable {
                 }
                 final RecentsView recentsView = getRecentsView();
                 recentsView.onGestureAnimationEnd();
-                recentsView.onSwipeUpAnimationSuccess();
-                if (!recentsView.getLandScape()) {
+                if (!recentsView.isLandscapeOrientation()) {
                     showTaskMenu(iconView);
-                    recentsView.switchToScreenshot(
-                            () -> recentsView.finishRecentsAnimation(recentsView.isScrolledFinished() /* toRecents */,
-                                    false /* shouldPip */,
-                                    null));
+                    recentsView.finishRecentsAnimation(true, null);
                 } else {
                     showTaskMenu(iconView);
                 }

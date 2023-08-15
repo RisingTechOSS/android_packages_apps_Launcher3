@@ -1989,12 +1989,13 @@ public abstract class AbsSwipeUpHandler<T extends StatefulActivity<S>,
             mStateCallback.setStateOnUiThread(STATE_CURRENT_TASK_FINISHED);
             if (mRecentsAnimationController != null) {
                 mRecentsAnimationController.detachNavigationBarFromApp(true);
-                if (mRecentsView.getLandScape()) {
+                if (mRecentsView.isLandscapeOrientation()) {
             	    mRecentsView.switchToScreenshot(() -> {
-                	    mRecentsView.finishRecentsAnimation(mRecentsView.isScrolledFinished() /* toRecents */, false /* shouldPip */,
+                	    mRecentsView.finishRecentsAnimation(true /* toRecents */, false /* shouldPip */,
                             null);
             	    });
                 }
+                setupLauncherUiAfterSwipeUpToRecentsAnimation();
             }
         }
     }

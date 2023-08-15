@@ -543,8 +543,6 @@ public abstract class RecentsView<ACTIVITY_TYPE extends StatefulActivity<STATE_T
     private long mScrollLastHapticTimestamp;
 
     private float mScrollScale = 1f;
-    
-    private boolean mIsLandScape;
 
     /**
      * TODO: Call reloadIdNeeded in onTaskStackChanged.
@@ -1966,8 +1964,6 @@ public abstract class RecentsView<ACTIVITY_TYPE extends StatefulActivity<STATE_T
                 || mOrientationState.getRecentsActivityRotation() != ROTATION_0;
         mActionsView.updateHiddenFlags(HIDDEN_NON_ZERO_ROTATION,
                 !mOrientationState.isRecentsActivityRotationAllowed() && isInLandscape);
-                
-	mIsLandScape = isInLandscape;
 
         // Update TaskView's DeviceProfile dependent layout.
         updateChildTaskOrientations();
@@ -1978,10 +1974,6 @@ public abstract class RecentsView<ACTIVITY_TYPE extends StatefulActivity<STATE_T
         requestLayout();
         // Reapply the current page to update page scrolls.
         setCurrentPage(mCurrentPage);
-    }
-
-    public boolean getLandScape() {
-        return mIsLandScape;
     }
    
     private void onOrientationChanged() {
@@ -5910,13 +5902,11 @@ public abstract class RecentsView<ACTIVITY_TYPE extends StatefulActivity<STATE_T
     }
 
     private void doScrollScale() {
-        if (showAsGrid())
+        if (showAsGrid()) {
             return;
+        }
 
-        boolean isInLandscape = mOrientationState.getTouchRotation() != ROTATION_0
-                                && mOrientationState.getTouchRotation() != ROTATION_180;
-
-	mIsLandScape = isInLandscape;
+        boolean isInLandscape = isLandscapeOrientation();
 
         int childCount = Math.min(mPageScrolls.length, getChildCount());
         int curScroll = isInLandscape ? getScrollY() : getScrollX();
@@ -5926,15 +5916,24 @@ public abstract class RecentsView<ACTIVITY_TYPE extends StatefulActivity<STATE_T
             int scaleArea = child.getWidth() + mPageSpacing;
             int childPosition = mPageScrolls[i];
             int scrollDelta = Math.abs(curScroll - childPosition);
+
             if (scrollDelta > scaleArea) {
-                child.setScaleX(mScrollScale);
-                child.setScaleY(mScrollScale);
+                setChildScale(child, mScrollScale);
             } else {
                 float scale = mapToRange(scrollDelta, 0, scaleArea, 1f, mScrollScale, LINEAR);
-                child.setScaleX(scale);
-                child.setScaleY(scale);
+                setChildScale(child, scale);
             }
         }
+    }
+
+    public boolean isLandscapeOrientation() {
+        int touchRotation = mOrientationState.getTouchRotation();
+        return touchRotation != ROTATION_0 && touchRotation != ROTATION_180;
+    }
+
+    private void setChildScale(View child, float scale) {
+        child.setScaleX(scale);
+        child.setScaleY(scale);
     }
 
     private void dispatchScrollChanged() {
