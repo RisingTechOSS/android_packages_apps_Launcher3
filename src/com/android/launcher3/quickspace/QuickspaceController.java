@@ -143,12 +143,16 @@ public class QuickspaceController implements NotificationListener.NotificationsC
             }
 
             boolean shouldShowCity = Utilities.QuickSpaceShowCity(mContext);
-            String weatherTemp = String.format("%d%s \u2022 Today %d° / %d°", 
-                                              units.equals("°F") ? Math.round(tempF) : Math.round(tempC), 
-                                              units, Math.round(tempC), Math.round(tempF)) 
-                                + (shouldShowCity ? " \u2022 " + mWeatherInfo.city : "")
-                                + (isDetailed ? " \u2022 " + formattedCondition : "");
-            return weatherTemp;
+            if (isDetailed) {
+                String weatherTemp = String.format("%d%s \u2022 Today %d° / %d°",
+                        units.equals("°F") ? Math.round(tempF) : Math.round(tempC),
+                        units, Math.round(tempC), Math.round(tempF))
+                        + (shouldShowCity ? " \u2022 " + mWeatherInfo.city : "")
+                        + " \u2022 " + formattedCondition;
+                return weatherTemp;
+            } else {
+                return String.format("%d%s", Math.round(temperature), units);
+            }
         }
         return null;
     }
