@@ -5,7 +5,9 @@ import static android.content.pm.SuspendDialogInfo.BUTTON_ACTION_UNSUSPEND;
 import static com.android.launcher3.logging.StatsLogManager.LauncherEvent.LAUNCHER_SYSTEM_SHORTCUT_APP_INFO_TAP;
 import static com.android.launcher3.logging.StatsLogManager.LauncherEvent.LAUNCHER_SYSTEM_SHORTCUT_WIDGETS_TAP;
 
+import android.app.ActivityManagerNative;
 import android.app.ActivityOptions;
+import android.app.IActivityManager;
 import android.app.AlertDialog;
 import android.app.AppGlobals;
 import android.content.Context;
@@ -16,11 +18,13 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.RemoteException;
 import android.util.Log;
+import android.os.UserHandle;
 import android.view.InflateException;
 import android.view.View;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -343,6 +347,33 @@ public abstract class SystemShortcut<T extends Context & ActivityContext> extend
                 AbstractFloatingView.closeAllOpenViews(mTarget);
             } catch (URISyntaxException e) {
                 // Do nothing.
+            }
+        }
+    }
+
+    public static final Factory<BaseDraggingActivity> KILL_APP = (activity, itemInfo, originalView) -> {
+        String packageName = itemInfo.getTargetComponent().getPackageName();
+        return packageName == null ? null : new KillApp(activity, itemInfo, originalView);
+    };
+
+    public static class KillApp extends SystemShortcut<BaseDraggingActivity> {
+        private final String mPackageName;
+
+        public KillApp(BaseDraggingActivity target, ItemInfo itemInfo, View originalView) {
+            super(R.drawable.ic_kill_app, R.string.recent_task_option_kill_app,
+                    target, itemInfo, originalView);
+            mPackageName = itemInfo.getTargetComponent().getPackageName();
+        }
+
+        @Override
+        public void onClick(View view) {
+            if (mPackageName != null) {
+                IActivityManager iam = ActivityManagerNative.getDefault();
+                try {
+                    iam.forceStopPackage(mPackageName, UserHandle.USER_CURRENT);
+                    Toast appKilled = Toast.makeText(mTarget, R.string.recents_app_killed, Toast.LENGTH_SHORT);
+                    appKilled.show();
+                } catch (RemoteException e) { }
             }
         }
     }
