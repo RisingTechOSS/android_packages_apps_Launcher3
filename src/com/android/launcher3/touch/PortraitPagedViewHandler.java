@@ -760,9 +760,6 @@ public class PortraitPagedViewHandler implements PagedOrientationHandler {
 
     @Override
     public int getDefaultSplitPosition(DeviceProfile deviceProfile) {
-        if (!deviceProfile.isTablet) {
-            throw new IllegalStateException("Default position available only for large screens");
-        }
         if (deviceProfile.isLandscape) {
             return STAGE_POSITION_BOTTOM_OR_RIGHT;
         } else {

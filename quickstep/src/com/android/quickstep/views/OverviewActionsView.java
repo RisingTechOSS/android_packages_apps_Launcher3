@@ -106,6 +106,7 @@ public class OverviewActionsView<T extends OverlayUICallbacks> extends FrameLayo
     private static final String KEY_RECENTS_LENS = "pref_recents_lens";
     private static final String KEY_RECENTS_SHAKE_CLEAR_ALL = "pref_recents_shake_clear_all";
     private static final String KEY_RECENTS_LOCK = "pref_recents_lock";
+    private static final String KEY_RECENTS_SPLIT_APP = "pref_recents_split";
     private static final String KEY_RECENTS_KILL_APP = "pref_recents_kill_app";
 
     private MultiValueAlpha mMultiValueAlpha;
@@ -137,6 +138,7 @@ public class OverviewActionsView<T extends OverlayUICallbacks> extends FrameLayo
     private boolean mShakeClearAll;
     private boolean mLock;
     private boolean mKillApp;
+    private boolean mSplit;
     private long onClickTime = 0;
 
     public OverviewActionsView(Context context) {
@@ -152,13 +154,14 @@ public class OverviewActionsView<T extends OverlayUICallbacks> extends FrameLayo
         SharedPreferences prefs = LauncherPrefs.getPrefs(context);
         mScreenshot = prefs.getBoolean(KEY_RECENTS_SCREENSHOT, true);
         mClearAll = prefs.getBoolean(KEY_RECENTS_CLEAR_ALL, true);
-        mLens = prefs.getBoolean(KEY_RECENTS_LENS, false);
+        mLens = prefs.getBoolean(KEY_RECENTS_LENS, true);
         mLock = prefs.getBoolean(KEY_RECENTS_LOCK, true);
-        mKillApp = prefs.getBoolean(KEY_RECENTS_KILL_APP, false);
+        mSplit = prefs.getBoolean(KEY_RECENTS_SPLIT_APP, true);
+        mKillApp = prefs.getBoolean(KEY_RECENTS_KILL_APP, true);
         prefs.registerOnSharedPreferenceChangeListener(this);
         int mShakeClearIntensity = Utilities.shakeClearIntensity(getContext());
         mShakeUtils = new ShakeUtils(getContext(), mShakeClearIntensity);
-        mShakeClearAll = prefs.getBoolean(KEY_RECENTS_SHAKE_CLEAR_ALL, true);
+        mShakeClearAll = prefs.getBoolean(KEY_RECENTS_SHAKE_CLEAR_ALL, false);
     }
 
     @Override
@@ -205,6 +208,9 @@ public class OverviewActionsView<T extends OverlayUICallbacks> extends FrameLayo
         mSplitButton = findViewById(R.id.action_split);
         mSplitButton.setOnClickListener(this);
         
+        mSplitButton.setVisibility(mSplit ? VISIBLE : GONE);
+        findViewById(R.id.action_split_space).setVisibility(mSplit ? VISIBLE : GONE);
+        
     }
 
     @Override
@@ -244,6 +250,8 @@ public class OverviewActionsView<T extends OverlayUICallbacks> extends FrameLayo
             mCallbacks.onClearAllTasksRequested();
         } else if (id == R.id.action_lens) {
             mCallbacks.onLens();
+        } else if (id == R.id.action_split) {
+            mCallbacks.onSplit();
         } else if (id == R.id.kill_app) {
             mCallbacks.onKillApp();
         }
@@ -269,13 +277,15 @@ public class OverviewActionsView<T extends OverlayUICallbacks> extends FrameLayo
         } else if (key.equals(KEY_RECENTS_CLEAR_ALL)) {
             mClearAll = prefs.getBoolean(KEY_RECENTS_CLEAR_ALL, true);
         } else if (key.equals(KEY_RECENTS_LENS)) {
-            mLens = prefs.getBoolean(KEY_RECENTS_LENS, false);
+            mLens = prefs.getBoolean(KEY_RECENTS_LENS, true);
         } else if (key.equals(KEY_RECENTS_SHAKE_CLEAR_ALL)) {
-            mShakeClearAll = prefs.getBoolean(KEY_RECENTS_SHAKE_CLEAR_ALL, true);
+            mShakeClearAll = prefs.getBoolean(KEY_RECENTS_SHAKE_CLEAR_ALL, false);
         } else if (key.equals(KEY_RECENTS_LOCK)) {
-            mLock = prefs.getBoolean(KEY_RECENTS_LOCK, false);
+            mLock = prefs.getBoolean(KEY_RECENTS_LOCK, true);
         } else if (key.equals(KEY_RECENTS_KILL_APP)) {
-            mKillApp = prefs.getBoolean(KEY_RECENTS_KILL_APP, false);
+            mKillApp = prefs.getBoolean(KEY_RECENTS_KILL_APP, true);
+        } else if (key.equals(KEY_RECENTS_SPLIT_APP)) {
+            mSplit = prefs.getBoolean(KEY_RECENTS_SPLIT_APP, true);
         }
         updateVisibilities();
     }
@@ -316,6 +326,7 @@ public class OverviewActionsView<T extends OverlayUICallbacks> extends FrameLayo
      * @param enable Whether to enable the hidden flag: True will cause view to be hidden.
      */
     public void updateSplitButtonHiddenFlags(@SplitButtonHiddenFlags int flag, boolean enable) {
+        /*
         if (enable) {
             mSplitButtonHiddenFlags |= flag;
         } else {
@@ -323,8 +334,7 @@ public class OverviewActionsView<T extends OverlayUICallbacks> extends FrameLayo
         }
         if (mSplitButton == null) return;
         boolean shouldBeVisible = mSplitButtonHiddenFlags == 0;
-        mSplitButton.setVisibility(shouldBeVisible ? VISIBLE : GONE);
-        findViewById(R.id.action_split_space).setVisibility(shouldBeVisible ? VISIBLE : GONE);
+        */
     }
 
     /**
