@@ -58,13 +58,13 @@
         <SwitchPreference
             android:key="pref_recents_kill_app"
             android:title="@string/recents_kill_app"
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:persistent="true" />
 
         <SwitchPreference
             android:key="pref_recents_lens"
             android:title="@string/recents_lens_title"
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:persistent="true" />
 
         <SwitchPreference
@@ -80,9 +80,15 @@
             android:persistent="true" />
 
         <SwitchPreference
+            android:key="pref_recents_split"
+            android:title="@string/recents_split_title"
+            android:defaultValue="true"
+            android:persistent="true" />
+
+        <SwitchPreference
             android:key="pref_recents_shake_clear_all"
             android:title="@string/recents_shake_clear_all_title"
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:persistent="true" />
     </PreferenceCategory>
 
