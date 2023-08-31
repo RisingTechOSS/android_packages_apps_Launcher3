@@ -67,6 +67,7 @@ import static com.android.quickstep.views.OverviewActionsView.HIDDEN_NO_RECENTS;
 import static com.android.quickstep.views.OverviewActionsView.HIDDEN_NO_TASKS;
 import static com.android.quickstep.views.OverviewActionsView.HIDDEN_SPLIT_SCREEN;
 import static com.android.quickstep.views.OverviewActionsView.HIDDEN_SPLIT_SELECT_ACTIVE;
+import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -2281,12 +2282,14 @@ public abstract class RecentsView<ACTIVITY_TYPE extends StatefulActivity<STATE_T
 
     public abstract void startHome();
 
-    public void reset() {
-        setCurrentTask(-1);
-        mCurrentPageScrollDiff = 0;
-        mIgnoreResetTaskId = -1;
-        mTaskListChangeId = -1;
-        mFocusedTaskViewId = -1;
+    public void reset(boolean isCancelAnimation) {
+        setCurrentTask(-1, isCancelAnimation);
+        if (!isCancelAnimation) {
+            mCurrentPageScrollDiff = 0;
+            mIgnoreResetTaskId = -1;
+            mTaskListChangeId = -1;
+            mFocusedTaskViewId = -1;
+        }
 
         if (mRecentsAnimationController != null) {
             mRecentsAnimationController = null;
@@ -2649,6 +2652,26 @@ public abstract class RecentsView<ACTIVITY_TYPE extends StatefulActivity<STATE_T
      */
     public void setCurrentTask(int runningTaskViewId) {
         if (mRunningTaskViewId == runningTaskViewId) {
+            return;
+        }
+
+        if (mRunningTaskViewId != -1) {
+            // Reset the state on the old running task view
+            setTaskIconScaledDown(false);
+            setRunningTaskViewShowScreenshot(true);
+            setRunningTaskHidden(false);
+        }
+        mRunningTaskViewId = runningTaskViewId;
+    }
+
+    public void setCurrentTask(int runningTaskViewId, boolean isCancelAnimation) {
+        if (mRunningTaskViewId == runningTaskViewId) {
+            return;
+        }
+
+        if (isCancelAnimation && mActivity.getResources()
+                .getInteger(com.android.internal.R.integer.config_navBarInteractionMode)
+                    != NAV_BAR_MODE_GESTURAL) {
             return;
         }
 
