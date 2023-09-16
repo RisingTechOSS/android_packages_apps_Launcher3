@@ -27,7 +27,7 @@
 
     <item>
         <shape android:shape="oval" >
-            <solid android:color="?android:attr/colorAccent" />
+            <solid android:color="@color/material_bg_accent_color" />
         </shape>
     </item>
 </ripple>

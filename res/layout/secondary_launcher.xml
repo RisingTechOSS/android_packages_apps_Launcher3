@@ -38,6 +38,7 @@
         android:layout_margin="40dp"
         android:padding="16dp"
         android:src="@drawable/ic_apps"
+        android:tint="@color/monochrome_icon_color"
         android:background="@drawable/bg_all_apps_button"
         android:contentDescription="@string/all_apps_button_label"
         android:onClick="onAppsButtonClicked" />
