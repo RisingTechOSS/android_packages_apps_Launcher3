@@ -18,11 +18,13 @@ package com.android.launcher3.secondarydisplay;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.view.ViewAnimationUtils;
 import android.view.inputmethod.InputMethodManager;
@@ -251,6 +253,9 @@ public class SecondaryDisplayLauncher extends BaseDraggingActivity
             mAppDrawerShown = true;
             mAppsView.setVisibility(View.VISIBLE);
             mAppsButton.setVisibility(View.INVISIBLE);
+            ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) mAppsView.getSearchView().getLayoutParams();
+            layoutParams.topMargin = getResources().getDimensionPixelSize(R.dimen.all_apps_search_bar_margin_top);
+            mAppsView.getSearchView().setLayoutParams(layoutParams);
             mSecondaryDisplayPredictions.updateAppDivider();
         } else {
             mAppDrawerShown = false;
