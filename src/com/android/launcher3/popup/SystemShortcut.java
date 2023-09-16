@@ -377,6 +377,7 @@ public abstract class SystemShortcut<T extends Context & ActivityContext> extend
                     iam.forceStopPackage(mPackageName, UserHandle.USER_CURRENT);
                     Toast appKilled = Toast.makeText(mTarget, R.string.recents_app_killed, Toast.LENGTH_SHORT);
                     appKilled.show();
+                    AbstractFloatingView.closeAllOpenViews(mTarget);
                 } catch (RemoteException e) { }
             }
         }
