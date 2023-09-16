@@ -164,6 +164,9 @@ import java.util.List;
  */
 public class QuickstepTransitionManager implements OnDeviceProfileChangeListener {
 
+    private static final int animationScale =
+            SystemProperties.getInt("persist.sys.animation_scale", 80);
+
     private static final boolean ENABLE_SHELL_STARTING_SURFACE =
             SystemProperties.getBoolean("persist.debug.shell_starting_surface", true);
 
@@ -1036,7 +1039,7 @@ public class QuickstepTransitionManager implements OnDeviceProfileChangeListener
     }
 
     public static int getDuration(int duration) {
-        Float sAnimScale = 60.0f;
+        Float sAnimScale = (float) animationScale;
         float animScale2 = Math.max(0.0f, Math.min(1.0f, sAnimScale / 100.0f));
         sAnimScale = Float.valueOf(animScale2);
         return (int) (duration * sAnimScale);
