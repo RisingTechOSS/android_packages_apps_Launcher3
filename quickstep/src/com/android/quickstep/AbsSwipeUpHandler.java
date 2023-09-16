@@ -878,10 +878,16 @@ public abstract class AbsSwipeUpHandler<T extends StatefulActivity<S>,
     public void onRecentsAnimationStart(RecentsAnimationController controller,
             RecentsAnimationTargets targets) {
         super.onRecentsAnimationStart(controller, targets);
+        if (targets.apps == null || targets.apps.length == 0) {
+            return;
+        }
         if (DesktopTaskView.DESKTOP_MODE_SUPPORTED && targets.hasDesktopTasks()) {
             mRemoteTargetHandles = mTargetGluer.assignTargetsForDesktop(targets);
         } else {
             mRemoteTargetHandles = mTargetGluer.assignTargetsForSplitScreen(targets);
+        }
+        if (mRemoteTargetHandles == null || mRemoteTargetHandles.length == 0) {
+            return;
         }
         mRecentsAnimationController = controller;
         mRecentsAnimationTargets = targets;
