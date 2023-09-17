@@ -29,6 +29,7 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.window.SplashScreen;
 
 import androidx.annotation.Nullable;
 
@@ -417,6 +418,8 @@ public abstract class SystemShortcut<T extends Context & ActivityContext> extend
             final Rect r = new Rect(0, 0, decorView.getWidth() / 2, decorView.getHeight() / 2);
             r.offsetTo(insets.getSystemWindowInsetLeft() + 50, insets.getSystemWindowInsetTop() + 50);
             activityOptions.setLaunchBounds(r);
+            activityOptions.setSplashScreenStyle(SplashScreen.SPLASH_SCREEN_STYLE_ICON);
+            activityOptions.setTaskOverlay(true /* taskOverlay */, true /* canResume */);
             return activityOptions;
         }
     }
