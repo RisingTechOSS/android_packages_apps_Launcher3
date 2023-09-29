@@ -57,7 +57,7 @@ public class QuickEventsController {
     private String mGreetings;
     private String mClockExt;
     private OnClickListener mEventTitleSubAction = null;
-    private int mEventSubIcon;
+    private int mEventSubIcon = 0;
 
     private boolean mIsQuickEvent = false;
     private boolean mRunning = true;
@@ -289,6 +289,8 @@ public class QuickEventsController {
                 }
             }
         };
+
+        mEventSubIcon = 0;
 
         switch (Calendar.getInstance().get(Calendar.HOUR_OF_DAY)) {
         
