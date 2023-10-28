@@ -16,7 +16,7 @@
 
 package com.android.quickstep.views;
 
-import static com.android.launcher3.config.FeatureFlags.FORCE_PERSISTENT_TASKBAR;
+import static com.android.launcher3.config.FeatureFlags.ENABLE_TASKBAR_PINNING;
 import static com.android.launcher3.util.NavigationMode.TWO_BUTTONS;
 import static com.android.launcher3.util.NavigationMode.THREE_BUTTONS;
 
@@ -125,7 +125,7 @@ public class MemInfoView extends TextView {
 
         /* There are 2 cases for persistent taskbar, getting 3-button
          gestures or force it with feature flags. */
-        boolean isPersistentTaskbar = ((mode == THREE_BUTTONS) || FORCE_PERSISTENT_TASKBAR.get());
+        boolean isPersistentTaskbar = ((mode == THREE_BUTTONS) || ENABLE_TASKBAR_PINNING.get());
 
         if  ((mDp.isTaskbarPresent) && isPersistentTaskbar)
             bottomMargin = mDp.memInfoMarginPersistentTaskbarPx;
