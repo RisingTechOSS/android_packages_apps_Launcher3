@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2023 risingOS
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Application name -->
+
+    <!-- General -->
+    <string name="settings_title">Настройки Ortus Launcher</string>
+
+    <!-- Categories -->
+    <string name="home_category_title">Главный экран</string>
+    <string name="home_category_summary">Установить панель Google now и другое</string>
+    <string name="icons_category_title">Значки</string>
+    <string name="icons_category_summary">Установить размер значков и многое другое</string>
+    <string name="app_drawer_category_title">Меню приложений</string>
+    <string name="app_drawer_category_summary">Настроить меню приложений</string>
+    <string name="recents_category_title">Недавние</string>
+    <string name="recents_category_summary">Настройка экрана недавних приложений</string>
+    <string name="misc_category_title">Разное</string>
+    <string name="misc_category_summary">Другие настройки</string>
+    <string name="general_category_title">Общие</string>
+    <string name="interface_category_title">Интерфейс</string>
+    <string name="search_bar_category_title">Строка поиска</string>
+    <string name="actions_category_title">Быстрые действия</string>
+
+    <!-- Developer options -->
+    <string name="dev_options_title">Параметры разработчика</string>
+    <string name="dev_options_summary">Включить некоторые скрытые функции на свой страх и риск</string>
+
+    <!-- Edit workspace -->
+    <string name="settings_lock_layout_title">Запретить редактирование</string>
+    <string name="settings_lock_layout_summary_on">Значки и виджеты не могут быть добавлены, удалены или перемещены на рабочий стол</string>
+    <string name="settings_lock_layout_summary_off">Значки и виджеты могут быть добавлены, удалены и перемещены на домашнем экране</string>
+    <string name="settings_edit_widgets_error">Невозможно добавить виджеты на главный экран</string>
+
+    <!-- Hide labels -->
+    <string name="desktop_show_labels">Показывать подписи значков</string>
+    <string name="drawer_show_labels">Показывать подписи значков</string>
+
+    <!-- Settings title to show Google Now at -1 screen on launcher. [CHAR LIMIT=50] -->
+    <string name="title_show_google_app">Проведите пальцем для доступа к приложению Google</string>
+    <!-- Settings message explaining when the -1 screen is available on an LTR device. [CHAR LIMIT=100] -->
+    <string name="msg_minus_one_on_left">Когда вы проводите вправо с главного Рабочего стола</string>
+    <!-- Settings message explaining when the -1 screen is available on an RTL device. [CHAR LIMIT=100] -->
+    <string name="msg_minus_one_on_right">Когда вы проводите влево с главного Рабочего стола</string>
+
+    <!-- Trust apps -->
+    <string name="trust_apps_manager_name">Скрытые и Защищенные приложения</string>
+    <string name="trust_apps_auth_manager">Разблокируйте, для управления скрытыми и защищенными приложениями</string>
+    <string name="trust_apps_auth_open_app">Авторизуйтесь, для открытия %1$s</string>
+    <string name="trust_apps_loading">Загрузка\u2026</string>
+    <string name="trust_apps_no_lock_error">Пожалуйста, установите блокировку экрана для ограничения доступа к приложениям</string>
+    <string name="trust_apps_help">Помощь</string>
+    <string name="trust_apps_info_hidden">Скрытые приложения и их виджеты скрыты из меню</string>
+    <string name="trust_apps_info_protected">Для открытия защищенных приложений из лаунчера требуется аутентификация</string>
+
+    <!-- DT2S -->
+    <string name="pref_sleep_gesture_title">Двойное касание для сна</string>
+    <string name="pref_sleep_gesture_summary">Дважды коснитест пустого места, чтобы выключить экран</string>
+
+    <!-- Pause apps shortcut -->
+    <string name="pause">Пауза</string>
+    <string name="pause_apps_dialog_title">Приостановить %1$s?</string>
+    <string name="pause_apps_dialog_message">Уведомления для %1$s будут приостановлены</string>
+    <string name="paused_apps_dialog_title">Приложение приостановлено</string>
+    <string name="paused_apps_dialog_message">Программа %1$s была приостановлена непосредственно из лаунчера</string>
+    <string name="paused_apps_drop_target_label">Приостановить приложение</string>
+
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Значение: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">по умолчанию</string>
+    <string name="custom_seekbar_default_value_to_set">Значение по умолчанию: <xliff:g id="v">%s</xliff:g>\nУстановите долгим нажатием</string>
+    <string name="custom_seekbar_default_value_is_set">Установлено значение по умолчанию</string>
+
+    <!-- Icon size -->
+    <string name="icon_size_title">Размер значка</string>
+
+    <!-- Font size -->
+    <string name="font_size_title">Размер шрифта</string>
+
+    <!-- App label - max lines -->
+    <string name="icon_max_lines_title">Максимальное количество строк в названии ярлыка приложений</string>
+
+    <!-- Hotseat searchbar -->
+    <string name="label_search">Поиск</string>
+    <string name="label_lens">Google Объектив</string>
+    <string name="label_voice_search">Голосовой поиск</string>
+    <string name="dock_music_search_title">Поиск музыки</string>
+    <string name="dock_music_search_summary">Поиск музыки при нажатии на микрофон</string>
+    <string name="dock_search_title">Поиск Google</string>
+    <string name="dock_search_summary">Строка поиска в нижней панели</string>
+    <string name="dock_theme_title">Значок из темы</string>
+    <string name="dock_theme_summary">Для панели поиска использовать значки из темы</string>
+    <string name="search_radius_title">Радиус скругления углов</string>
+    <string name="monochrome_search_theme_title">Монохромная тема панели поиска</string>
+    <string name="monochrome_search_theme_summary">Включить монохромную тему для панели поиска</string>
+
+    <!-- Hotseat Background -->
+    <string name="hotseat_bg_title">Фон нижней панели</string>
+    <string name="hotseat_bg_summary">Полупрозрачный фон нижней панели приложений</string>
+
+    <!-- Wallpaper scrolling -->
+    <string name="allow_wallpaper_scrolling">Прокрутка обоев</string>
+    <string name="allow_wallpaper_scrolling_summary">Эффект прокрутки обоев для нескольких экранов</string>
+
+    <!-- Wallpaper zooming -->
+    <string name="allow_wallpaper_zooming">Масштабирование обоев</string>
+    <string name="allow_wallpaper_zooming_summary">Увеличение или уменьшение обоев в меню приложений и в списке недавних приложений</string>
+
+    <!-- Homescreen Statusbar -->
+    <string name="show_statusbar_title">Отображение строки состояния</string>
+    <string name="show_statusbar_title_summary">Показать/скрыть строку состояния при просмотре главного экрана</string>
+
+    <!-- Top shadow -->
+    <string name="show_top_shadow">Включить тень у строки состояния</string>
+    <string name="show_top_shadow_summary">Добавляет полупрозрачную тень в строку состояния</string>
+
+    <!-- Row Height -->
+    <string name="row_height_title">Высота строки</string>
+    
+    <!-- Background blur -->
+    <string name="background_blur_title">Размытие фона</string>
+    <string name="background_blur_summary">Установка глубины размытия для недавних и меню приложений</string>
+
+    <!-- Suggestions -->
+    <string name="suggestion_pref_screen_title">Рекомендации</string>
+    <string name="suggestion_pref_screen_desc">Рекомендации в списке всех приложений и на главном экране</string>
+
+    <!-- Background opacity -->
+    <string name="background_opacity_title">Непрозрачность фона</string>
+
+    <!-- Recents icons -->
+    <string name="recents_screenshot_title">Снимок экрана</string>
+    <string name="recents_clear_all_title">Очистить все</string>
+    <string name="recents_lens_title">Объектив</string>
+    <string name="recents_lock_title">Закрепить приложение</string>
+    <string name="recents_split_title">Раскрепить приложение</string>
+
+    <!-- All apps themed icons -->
+    <string name="pref_themed_icons_title">Тематические значки</string>
+    <string name="pref_themed_icons_summary">Настройка тематических значков, используемых на главном экране.</string>
+
+    <!-- AppInfo -->
+    <string name="app_info_source">Источник</string>
+    <string name="app_info_source_system">Система</string>
+    <string name="app_info_last_update">Последнее обновление</string>
+    <string name="app_info_version">Версия</string>
+    <string name="app_info_more">Больше</string>
+
+    <!-- Force monochrome icons -->
+    <string name="pref_force_monochrome_themed_icons_title">Принудительные тематические значки</string>
+    <string name="pref_force_monochrome_themed_icons_summary">Использовать тематические значки, если это не предусмотрено приложением (требуется повторное переключение тематических значков)</string>
+
+    <!-- Icon pack -->
+    <string name="icon_pack_title">Набор значков</string>
+    <string name="icon_pack_default_label">По умолчанию</string>
+    <string name="icon_pack_add">Установить ещё</string>
+    <string name="icon_pack_no_market">Нет доступного магазина приложений</string>
+
+    <!-- Memory info -->
+    <string name="meminfo_text">%1$s доступно | %2$s</string>
+    <string name="recents_meminfo_title">Информация о памяти</string>
+
+    <!-- App drawer searchbar -->
+    <string name="drawer_search_title">Строка поиска</string>
+    <string name="drawer_search_summary">Строка поиска в верхней части меню приложений</string>
+
+    <!-- Restart launcher -->
+    <string name="pref_restart_title">Перезапустить</string>
+    <string name="pref_restart_summary">Перезапустить лаунчер вручную, чтобы применить все ожидающие настройки</string>
+    <string name="restarting_launcher">Перезапуск лаунчера...</string>
+    <string name="restarting_launcher_changes">Перезапуск лаунчера для применения изменений...</string>
+    <string name="updating_launcher_components">Перезапуск лаунчера для обновления компонентов лаунчера...</string>
+
+    <!-- Shake Clear Recents -->
+    <string name="recents_shake_clear_all_title">Встряхнуть, для очистки списка открытых приложений</string>
+
+    <!-- Parallax -->
+    <string name="short_parallax_title">Разрешить короткий параллакс</string>
+    <string name="short_parallax_summary">Включить эффект полной прокрутки обоев на меньшем количестве страниц вместо обрезки обоев</string>
+    <string name="single_page_center_title">Одностраничный центр</string>
+    <string name="single_page_center_summary">Центрировать обои, если используется только одна страница</string>
+
+    <!-- Dark Status Bar -->
+    <string name="perf_dark_status_bar_title">Темная строка состояния</string>
+    <string name="perf_dark_status_bar_summary">Использовать темную строку состояния на главном экране</string>
+
+    <!-- Gestures -->
+    <string name="gestures_category_title">Настройки жестов</string>
+    <string name="gestures_category_summary">Настройте параметры жестов</string>
+    <string name="shake_clear_summary">Или потрясите телефон, чтобы очистить последние действия</string>
+    <string name="shake_clear_intensity_title">Интенсивность встряхивания телефона для очистки последних действий</string>
+    <string name="shake_gesture_actions_title">Действия жестов встряхивания</string>
+    <string name="shake_gesture_actions_intensity_title">Интенсивность жестов встряхивания</string>
+    <string name="shake_gestures_disabled">Жесты встряхивания отключены</string>
+    <string name="shake_gestures_volume_panel">Встряхнитте устройство, чтобы показать панель громкости</string>
+    <string name="shake_gestures_torch">Встряхнитте устройство, чтобы включить/выключить фонарик</string>
+    <string name="shake_gestures_music">Встряхнитте устройство, чтобы воспроизвести/приостановить/пропустить музыку (зависит от проигрывающего устройства)</string>
+    
+
+    <!-- About info -->
+    <string name="about_thanks_cat">Особая благодарность</string>
+    <string name="about">About</string>
+    <string name="about_summary">Информация о Ortus Launcher</string>
+    <string name="about_app_version_title">Версия Ortus Launcher</string>
+    <string name="about_app_version">Версия 1.3</string>
+    <string name="settings_category" >      </string>
+    <string name="sponsors_title">При поддержке</string>
+
+    <!-- Launcher Vibration -->
+    <string name="pref_recents_vibration_title">Включить тактильную обратную связь при прокрутке списка открытых приложений</string>
+    <string name="pref_vib_intensity_title">Интенсивность тактильной обратной связи в лаунчере</string>
+
+    <!-- Launcher Vibration -->    
+    <string name="recents_kill_app">Закрыть приложение</string>
+
+    <!-- Toast for Clear All, App Locked n Unlocked -->
+    <string name="action_toast_enabled_title">Всплывающие сообщения</string>
+    <string name="action_toast_enabled_summary">Включить-отключить всплывающее уведомление «Очистить все»</string>
+</resources>
